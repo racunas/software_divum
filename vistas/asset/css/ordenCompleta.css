@@ -1,0 +1,24 @@
+.bordeRedondeado{
+	border: 1px solid #727272;
+	border-radius: 8px;
+}
+
+.btnCompartirFb{
+	background-color: #3b5998;
+	color:white;
+	border-radius: 8px;
+}
+
+.btnCompartirFb:hover{
+	background-color: #4e69a2;
+}
+
+.enlace{
+	text-decoration: none;
+	color:#727272;
+}
+
+.enlace:hover{
+	text-decoration: none;
+	color:#727272;
+}

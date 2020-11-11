@@ -1,0 +1,9 @@
+#IMPEDIR QUE SE PUEDA VER EL LISTADO DE CONTENIDOS DE UN DIRECTORIO
+
+Options All -Indexes
+
+#URL AMIGABLES
+
+RewriteEngine On
+
+RewriteRule ^([-a-zA-Z0-9ñÑ/]+)$ index.php?ruta=$1 [QSA,L]

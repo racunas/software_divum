@@ -1,0 +1,263 @@
+.margenOrdenesPorLaboratorio{
+	border: 0.5px solid #d8d8d8;
+	padding: 10px 0px;
+	border-radius: 10px;
+}
+
+.verOrdenesLaboratorio{
+	color:#a5a5a5;
+}
+
+.verOrdenesLaboratorio:hover{
+	color: #9ac76d;
+}
+
+.badge{
+	
+	font-size: 100%!important;
+
+}
+
+.imgPerfilOrdenes{
+
+	border-radius: 100%;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	object-fit: cover;
+
+}
+
+
+.letraPerfilOrden{
+	width: 50px;
+	height: 50px;
+	background-color: #9ac76d;
+	border: 1px solid #9ac76d;
+	border-radius: 100%;
+	cursor: pointer;
+	position: relative;
+}
+
+.letraPerfilOrden p{
+	font-size: 1.8rem;
+	color: white;
+	text-align: center;
+	margin-top: 4px;
+}
+
+.elementoTablaOrdenes{
+	cursor: pointer;
+}
+
+.tipoTrabajoUrgente{
+	background-color: rgba(255,35,35,0.1)!important;
+}
+
+.tipoTrabajoUrgente:hover{
+	background-color: #ededed!important;
+}
+
+.padreFlag{
+	position: relative;
+}
+
+.flagOrdenes{
+	position: absolute;
+	font-size: 0.9rem;
+	padding: 0 0.8rem;
+	top:0.2rem;
+	left:0;
+	border-radius: 0px 8px 8px 0px;
+	z-index: 9;
+}
+
+.flagNuevo{
+	background-color: #467023;
+	color:white;
+}
+
+.flagEntregar{
+	background-color: rgba(47, 68, 102,0.8);
+	color:white;
+}
+
+.flagAtrasado{
+	background-color: rgba(168,44,0,0.8);
+	color:white;
+}
+
+
+/*ESTILOS PARA EL BUSCADOR DE ORDENES*/
+
+.btnBuscarOrden{
+	background-color:white;
+	color:#a5a5a5;
+}
+
+.btnBuscarOrden:hover{
+	color:#9ac76d;
+}
+
+/*************************************/
+
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+	.avisoOrdenes{
+		font-size: 1.1rem;
+		padding: 0.2rem 0.4rem;
+		border-radius: 8px;
+		font-weight: bold!important;
+	}
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+	.avisoOrdenes{
+		font-size: 1.1rem;
+		padding: 0.2rem 0.4rem;
+		border-radius: 8px;
+		font-weight: bold!important;
+	}
+}
+
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+@media(max-width: 991px) and (min-width: 768px){
+	
+	.avisoOrdenes{
+		font-size: 1.1rem;
+		padding: 0.2rem 0.4rem;
+		border-radius: 8px;
+		font-weight: bold!important;
+	}
+	.separacionTablet{
+		margin-top: 1rem;
+	}
+
+}
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+	.fechaEntregaOrdenes{
+		font-size: 1rem;
+		margin-top: 15px;
+	}
+
+	.estadoOrdenes{
+		font-size: 1rem;
+		padding: 0.2rem 0.4rem;
+		margin-right: 1rem;
+		width: auto;
+		border-radius: 8px;
+	}
+
+	.precioOrdenes{
+		font-size: 1.5rem!important;
+	}
+
+	.avisoOrdenes{
+		font-size: 1rem;
+		padding: 0.2rem 0.4rem;
+		border-radius: 8px;
+	}
+
+	.cancelado{
+		border: 0.5px solid #a82c00;
+	}
+
+	.completado{
+		border: 0.5px solid #467023;
+	}
+
+	.enProceso{
+		border: 0.5px solid #17a2b8;
+	}
+
+	.ausente{
+		border: 0.5px solid black;
+	}
+
+	.pagoPendiente{
+		border: 0.5px solid #dd9700;
+	}
+
+	.barraNavegacionOrdenes{
+		overflow-y:auto;
+		flex-wrap: nowrap!important;
+	}
+
+	.elementoTablaOrdenes:hover{
+		background-color: #ededed!important;
+	}
+
+	.elementoTablaOrdenes{
+		padding-top: 1rem!important;
+		padding-left: 1.4rem!important;
+		padding-right: 1.4rem!important;
+	}
+
+}
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+	.fechaEntregaOrdenes{
+		font-size: 1rem;
+		margin-top: 15px;
+	}
+
+	.estadoOrdenes{
+		font-size: 1rem;
+		padding: 0.2rem 0.4rem;
+		margin-right: 1rem;
+		width: auto;
+		border-radius: 8px;
+	}
+
+	.precioOrdenes{
+		font-size: 1.5rem!important;
+	}
+
+	.avisoOrdenes{
+		font-size: 1rem;
+		padding: 0.2rem 0.4rem;
+		border-radius: 8px;
+	}
+
+	.cancelado{
+		border: 0.5px solid #a82c00;
+	}
+
+	.completado{
+		border: 0.5px solid #467023;
+	}
+
+	.enProceso{
+		border: 0.5px solid #17a2b8;
+	}
+
+	.ausente{
+		border: 0.5px solid black;
+	}
+
+	.pagoPendiente{
+		border: 0.5px solid #dd9700;
+	}
+
+	.barraNavegacionOrdenes{
+		overflow-y:auto;
+		flex-wrap: nowrap!important;
+	}
+
+	.elementoTablaOrdenes:hover{
+		background-color: #ededed!important;
+	}
+
+	.elementoTablaOrdenes{
+		padding-top: 1rem!important;
+		padding-left: 1.4rem!important;
+		padding-right: 1.4rem!important;
+	}
+
+	
+}

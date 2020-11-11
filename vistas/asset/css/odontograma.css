@@ -1,0 +1,339 @@
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+	
+	.diez{
+		float: left;
+	}
+
+	.veinte{
+		text-align: right;
+	}
+
+	.cuarenta{
+		float: left;
+	}
+
+	.treinta{
+		text-align: right;
+	}
+
+	#odontograma .diente, #odontograma .dienteOrden{
+		
+		width: 30px;
+		height: 30px;
+		background-color: white;
+		border-radius: 100%;
+		border-color: black;
+		border-width: 0.5px;
+		border-style: solid;
+		margin: 0px 5px;
+		display: inline-block;
+		color:black;
+	}
+
+	#odontograma .diente:hover,#odontograma .dienteOrden:hover{
+		
+		color:white;
+		background-color: rgba(255,153,0,0.2);	
+		cursor: pointer;
+		border-color: #9ac76d;
+
+	}
+
+	#odontograma .dientesOdonto .selected, #odontograma .dientesOdontoOrden .selected{
+		color:white;
+		background-color: #9ac76d;	
+		cursor: pointer;
+		border-color: #9ac76d;
+	}
+
+	#odontograma .diente p, #odontograma .dienteOrden p{
+		
+		text-align: center;
+		margin-top: 4px;
+
+	}
+
+	#odontograma{
+		padding: 10px 0px;
+		
+	}
+
+
+	.dientesOdonto li, .dientesOdontoOrden li{
+		display: inline;
+	}
+
+	.dientesOdonto, .dientesOdontoOrden{
+		
+		padding: 0;
+		margin:0;
+
+	}
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+
+	.diez{
+		float: left;
+	}
+
+	.veinte{
+		text-align: right;
+	}
+
+	.cuarenta{
+		float: left;
+	}
+
+	.treinta{
+		text-align: right;
+	}
+
+	#odontograma .diente, #odontograma .dienteOrden{
+	
+		width: 30px;
+		height: 30px;
+		background-color: white;
+		border-radius: 100%;
+		border-color: black;
+		border-width: 0.5px;
+		border-style: solid;
+		margin: 0px 5px;
+		display: inline-block;
+		color:black;
+	}
+
+	#odontograma .diente:hover,#odontograma .dienteOrden:hover{
+		
+		color:white;
+		background-color: rgba(255,153,0,0.2);	
+		cursor: pointer;
+		border-color: #9ac76d;
+
+	}
+
+	#odontograma .dientesOdonto .selected,#odontograma .dientesOdontoOrden .selected{
+		color:white;
+		background-color: #9ac76d;	
+		cursor: pointer;
+		border-color: #9ac76d;
+	}
+
+	#odontograma .diente p, #odontograma .dienteOrden p{
+		
+		text-align: center;
+		margin-top: 4px;
+
+	}
+
+	#odontograma{
+		padding: 10px 0px;
+		
+	}
+
+
+	.dientesOdonto li, .dientesOdontoOrden li{
+		display: inline;
+	}
+
+	.dientesOdonto, .dientesOdontoOrden{
+		
+		padding: 0;
+		margin:0;
+
+	}
+}
+
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+@media(max-width: 991px) and (min-width: 768px){
+
+	.veinte{
+		padding-top: 1rem !important;
+	}
+
+	#odontograma .diente, #odontograma .dienteOrden{
+		
+		width: 30px;
+		height: 30px;
+		background-color: white;
+		border-radius: 100%;
+		border-color: black;
+		border-width: 0.5px;
+		border-style: solid;
+		margin: 0px 5px;
+		display: inline-block;
+		color:black;
+	}
+
+	#odontograma .diente:hover, #odontograma .dienteOrden:hover{
+		
+		color:white;
+		background-color: rgba(255,153,0,0.2);	
+		cursor: pointer;
+		border-color: #9ac76d;
+
+	}
+
+	#odontograma .dientesOdonto .selected, #odontograma .dientesOdontoOrden .selected{
+		color:white;
+		background-color: #9ac76d;	
+		cursor: pointer;
+		border-color: #9ac76d;
+	}
+
+	#odontograma .diente p, #odontograma .dienteOrden p{
+		
+		text-align: center;
+		margin-top: 4px;
+
+	}
+
+	#odontograma{
+		padding: 10px 0px;
+		text-align: center;
+		
+	}
+
+
+	.dientesOdonto li, .dientesOdontoOrden li{
+		display: inline;
+	}
+
+	.dientesOdonto, .dientesOdontoOrden{
+		
+		padding: 0;
+		margin:0;
+
+	}
+
+}
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+	
+	.veinte{
+		padding-top: 1rem!important;
+	}
+
+	#odontograma .diente, #odontograma .dienteOrden{
+		
+		width: 30px;
+		height: 30px;
+		background-color: white;
+		border-radius: 100%;
+		border-color: black;
+		border-width: 0.5px;
+		border-style: solid;
+		margin: 0px 5px;
+		display: inline-block;
+		color:black;
+	}
+
+	#odontograma .diente:hover, #odontograma .dienteOrden:hover{
+		
+		color:white;
+		background-color: rgba(255,153,0,0.2);	
+		cursor: pointer;
+		border-color: #9ac76d;
+
+	}
+
+	#odontograma .dientesOdonto .selected, #odontograma .dientesOdontoOrden .selected{
+		color:white;
+		background-color: #9ac76d;	
+		cursor: pointer;
+		border-color: #9ac76d;
+	}
+
+	#odontograma .diente p,#odontograma .dienteOrden p{
+		
+		text-align: center;
+		margin-top: 4px;
+
+	}
+
+	#odontograma{
+		padding: 10px 0px;
+		text-align: center;
+		
+	}
+
+
+	.dientesOdonto li,.dientesOdontoOrden li{
+		display: inline;
+	}
+
+	.dientesOdontoOrden{
+		
+		padding: 0;
+		margin:0;
+
+	}
+
+}
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+	
+	.veinte{
+		padding-top: 1rem!important;
+	}
+
+	#odontograma .diente, #odontograma .dienteOrden{
+		
+		width: 25px;
+		height: 25px;
+		background-color: white;
+		border-radius: 100%;
+		border-color: black;
+		border-width: 0.5px;
+		border-style: solid;
+		margin: 0px 2px;
+		display: inline-block;
+		color:black;
+	}
+
+	#odontograma .diente:hover, #odontograma .dienteOrden:hover{
+		
+		color:white;
+		background-color: rgba(255,153,0,0.2);	
+		cursor: pointer;
+		border-color: #9ac76d;
+
+	}
+
+	#odontograma .dientesOdonto .selected, #odontograma .dientesOdontoOrden .selected{
+		color:white;
+		background-color: #9ac76d;	
+		cursor: pointer;
+		border-color: #9ac76d;
+	}
+
+	#odontograma .diente p, #odontograma .dienteOrden p{
+		
+		text-align: center;
+
+	}
+
+	#odontograma{
+		padding: 10px 0px;
+		text-align: center;
+		
+	}
+
+
+	.dientesOdonto li, .dientesOdontoOrden li{
+		display: inline;
+	}
+
+	.dientesOdonto, .dientesOdontoOrden{
+		
+		padding: 0;
+		margin:0;
+
+	}
+	
+}

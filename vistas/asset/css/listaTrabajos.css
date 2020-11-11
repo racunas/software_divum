@@ -1,0 +1,522 @@
+.btnBuscadorCabezote{
+	background: none;
+	border: 0;
+	color: inherit;
+	overflow: visible;
+}
+
+#btnAgregarTrabajo{
+	color: #24509A;
+	font-size: 50px;
+}
+
+.txtReducido{
+	overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+.hidden {
+	display:none;
+	-webkit-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.fa-edit:hover{
+	color: gray !important;
+	cursor: pointer;
+}
+
+.fa-trash-alt:hover{
+	color:gray !important ;
+	cursor: pointer;
+}
+
+.fa-chart-line:hover{
+	color: gray !important;
+}
+
+.fa-chart-bar:hover{
+	color: gray !important;
+}
+
+.btnAgregarTrabajoDental:hover{
+	background-color: #2c67c9;
+}
+
+.txtCorto{
+	overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+
+
+/*CLASES PARA LA LISTA DE PROTESIS*/
+
+.lista input[type="checkbox"] {
+	display: none;
+}
+
+.lista label{
+	color: #727272;
+	/*background: rgba(0,0,0,0.1);*/
+	padding: 5px 15px 5px 51px;
+	display: inline-block;
+	position: relative;
+	font-size: 1em;
+	border-radius: 3px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.lista label:hover{
+	background: rgba(255,153,0,.2);
+}
+
+.lista label:before{
+	content: "";
+	width: 17px;
+	height: 17px;
+	display: inline-block;
+	background: none;
+	border: 3px solid #727272;
+	border-radius: 50%;
+	position: absolute;
+	left: 17px;
+	top:10px;
+}
+
+.lista input[type="checkbox"]:checked + label{
+	padding: 5px 15px;
+	color: white;
+	background-color:#9ac76d;
+	border-radius: 2px;
+}
+
+.lista input[type="checkbox"]:checked + label:before{
+	display: none;
+}
+
+.lista button{
+	background-color: #9ac76d;
+}
+
+
+
+/*CLASES PARA LA LISTA DE PRECIOS DE LAS PROTESIS SELECCIONADAS*/
+
+
+.listaTrabajosPrecios{
+	font-size: 1.3rem;
+}
+
+.listaTrabajosPrecios .col-9{
+	padding-top: 5px;
+}
+
+#btnListaTrabajos2{
+	background-color: #9ac76d;
+}
+
+.precioInput{
+	font-size: 1.3rem!important;
+}
+
+/*CLASES PARA LA LISTA DE DATOS GENERALES, LA ÚLTIMA PARTE*/
+
+.trabajosUrgentes{
+	padding-top: 30px;
+}
+
+.urgente{
+	text-align: center;
+	padding-top: 30px;
+}
+
+.urgente label{
+	color: #D22027;
+	/*background: rgba(0,0,0,0.1);*/
+	padding: 5px 15px 5px 35px;
+	display: inline-block;
+	position: relative;
+	font-size: 1em;
+	border-radius: 3px;
+	cursor: pointer;
+	-webkit-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.urgente input[type="checkbox"] {
+	display: none;
+}
+
+.urgente label:hover{
+	background: rgba(210,32,39,0.2);
+}
+
+.urgente label:before{
+	content: "";
+	width: 17px;
+	height: 17px;
+	display: inline-block;
+	background: none;
+	border: 3px solid #D22027;
+	border-radius: 50%;
+	position: absolute;
+	left: 4px;
+	top:6px;
+}
+
+.urgente input[type="checkbox"]:checked + label{
+	padding: 5px 15px;
+	color: white;
+	background-color: #D22027;
+	border-radius: 2px;
+	font-weight: bold;
+}
+
+.urgente input[type="checkbox"]:checked + label:before{
+	display: none;
+}
+
+#formDatosUrgente{
+	padding-top: 25px;
+}
+
+
+.txtBienvenida{
+	letter-spacing: 1pt;
+}
+
+.input-group-text{
+	background-color: white!important;
+	border-color: white!important;
+	border-bottom-color: #727272!important;
+}
+
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+	.separacionLG_XL{
+		padding-top: 10px;
+	}
+
+	.gananciaOrdinario{
+		padding-left: 45px !important;
+	}
+
+	.gananciaUrgente{
+		padding-left: 45px!important;
+	}
+
+	.txtBienvenida{
+		font-size: 25px ;
+	}
+
+	.lista{
+		font-size: 18px;
+	}
+
+	/*CLASES PARA EL ESTILO DE QUE TRABAJOS HACE, SI ORTODONCIA O PROTESOS*/
+
+	.trabajoProtesis,.trabajoOrtodoncia{
+		border: 0.5px solid #9ac76d;
+		color: #9ac76d;
+		font-weight: bold;
+		border-radius: 20px;
+		margin:0px 130px;
+		padding: 20px 0px;
+	}
+
+	.trabajoProtesis:hover,.trabajoOrtodoncia:hover{
+		color:white;
+		cursor: pointer;
+		background-color: #9ac76d;
+	}
+
+	.trabajoProtesis i,.trabajoOrtodoncia i{
+		font-size: 6rem;
+	}
+
+	.trabajoProtesis p,.trabajoOrtodoncia p{
+		font-size: 2rem;
+		margin:0;
+	}
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+	.separacionLG_XL{
+		padding-top: 10px;
+	}
+
+	.gananciaOrdinario{
+		padding-left: 45px !important;
+	}
+
+	.gananciaUrgente{
+		padding-left: 45px!important;
+	}
+
+	/*CLASES PARA EL ESTILO DE QUE TRABAJOS HACE, SI ORTODONCIA O PROTESOS*/
+
+	.trabajoProtesis,.trabajoOrtodoncia{
+		border: 0.5px solid #9ac76d;
+		color: #9ac76d;
+		font-weight: bold;
+		border-radius: 20px;
+		margin:0px 130px;
+		padding: 20px 0px;
+	}
+
+	.trabajoProtesis:hover,.trabajoOrtodoncia:hover{
+		color:white;
+		cursor: pointer;
+		background-color: #9ac76d;
+	}
+
+	.trabajoProtesis i,.trabajoOrtodoncia i{
+		font-size: 6rem;
+	}
+
+	.trabajoProtesis p,.trabajoOrtodoncia p{
+		font-size: 2rem;
+		margin:0;
+	}
+}
+
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+@media(max-width: 991px) and (min-width: 768px){
+
+	.centrado{
+		text-align: center;
+	}
+	
+	.separacionBloque{
+		padding-top: 10px;
+	}
+
+	.separacionCargar{
+		padding-top: 10px;
+	}
+
+	/*CLASES PARA EL ESTILO DE QUE TRABAJOS HACE, SI ORTODONCIA O PROTESOS*/
+
+	.trabajoProtesis,.trabajoOrtodoncia{
+		border: 0.5px solid #9ac76d;
+		color: #9ac76d;
+		font-weight: bold;
+		border-radius: 20px;
+		margin:0px 50px;
+		padding: 20px 0px;
+	}
+
+	.trabajoProtesis:hover,.trabajoOrtodoncia:hover{
+		color:white;
+		cursor: pointer;
+		background-color: #9ac76d;
+	}
+
+	.trabajoProtesis i,.trabajoOrtodoncia i{
+		font-size: 6rem;
+	}
+
+	.trabajoProtesis p,.trabajoOrtodoncia p{
+		font-size: 2rem;
+		margin:0;
+	}
+
+	#botonesMovilesListaTrabajos .regresar{
+		background-color: #FFF;
+		border-color: #F0F0F0;
+	}
+
+	#botonesMovilesListaTrabajos .regresar button{
+		border-radius: 0!important;
+		border-color: #FFF;
+		text-align: center!important;
+		padding: 8px!important;
+		width: 100%;
+	}
+
+	#botonesMovilesListaTrabajos .confirmar{
+		background-color: #9ac76d;
+	}
+
+	#botonesMovilesListaTrabajos .confirmar button{
+		padding: 8px!important;
+		width: 100%;
+		text-align: center;
+	}
+
+	#botonesMovilesListaTrabajos button{
+		font-size: 1.5rem;
+	}
+
+}
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+	.separacionSM{
+		padding-top: 15px;
+	}
+
+	.centrado{
+		text-align: center;
+	}
+
+	.separacionBloque{
+		padding-top: 10px;
+	}
+
+	.separacionLista{
+		padding-top: 10px;
+	}
+
+	.separacionMovil{
+		padding-top: 15px;
+	}
+
+	/*CLASES PARA EL ESTILO DE QUE TRABAJOS HACE, SI ORTODONCIA O PROTESOS*/
+
+	.trabajoProtesis,.trabajoOrtodoncia{
+		border: 0.5px solid #9ac76d;
+		color: #9ac76d;
+		font-weight: bold;
+		border-radius: 20px;
+		margin:20px 50px;
+		padding: 20px 0px;
+	}
+
+	.trabajoProtesis:hover,.trabajoOrtodoncia:hover{
+		color:white;
+		cursor: pointer;
+		background-color: #9ac76d;
+	}
+
+	.trabajoProtesis i,.trabajoOrtodoncia i{
+		font-size: 6rem;
+	}
+
+	.trabajoProtesis p,.trabajoOrtodoncia p{
+		font-size: 2rem;
+		margin:0;
+	}
+
+	#botonesMovilesListaTrabajos .regresar{
+		background-color: #FFF;
+		border-color: #F0F0F0;
+	}
+
+	#botonesMovilesListaTrabajos .regresar button{
+		border-radius: 0!important;
+		border-color: #FFF;
+		text-align: center!important;
+		padding: 8px!important;
+		width: 100%;
+	}
+
+	#botonesMovilesListaTrabajos .confirmar{
+		background-color: #9ac76d;
+	}
+
+	#botonesMovilesListaTrabajos .confirmar button{
+		padding: 8px!important;
+		width: 100%;
+		text-align: center;
+	}
+
+	#botonesMovilesListaTrabajos button{
+		font-size: 1.5rem;
+	}
+}
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+	.container-fluid{
+		padding: 0 !important;
+	}
+
+	.separacionSM{
+		padding-top: 15px;
+	}
+
+	.separacionMD{
+		padding-top: 20px;
+	}
+
+	.centrado{
+		text-align: center;
+	}
+
+	.separacionBloque{
+		padding-top: 10px;
+	}
+
+	.separacionLista{
+		padding-top: 10px;
+	}
+
+	.separacionMovil{
+		padding-top: 15px;
+	}
+
+	/*CLASES PARA EL ESTILO DE QUE TRABAJOS HACE, SI ORTODONCIA O PROTESOS*/
+
+	.trabajoProtesis,.trabajoOrtodoncia{
+		border: 0.5px solid #9ac76d;
+		color: #9ac76d;
+		font-weight: bold;
+		border-radius: 20px;
+		margin:20px 50px;
+		padding: 20px 0px;
+	}
+
+	.trabajoProtesis:hover,.trabajoOrtodoncia:hover{
+		color:white;
+		cursor: pointer;
+		background-color: #9ac76d;
+	}
+
+	.trabajoProtesis i,.trabajoOrtodoncia i{
+		font-size: 6rem;
+	}
+
+	.trabajoProtesis p,.trabajoOrtodoncia p{
+		font-size: 2rem;
+		margin:0;
+	}
+
+	#botonesMovilesListaTrabajos .regresar{
+		background-color: #FFF;
+		border-color: #F0F0F0;
+	}
+
+	#botonesMovilesListaTrabajos .regresar button{
+		border-radius: 0!important;
+		border-color: #FFF;
+		text-align: center!important;
+		padding: 8px!important;
+		width: 100%;
+	}
+
+	#botonesMovilesListaTrabajos .confirmar{
+		background-color: #9ac76d;
+	}
+
+	#botonesMovilesListaTrabajos .confirmar button{
+		padding: 8px!important;
+		width: 100%;
+		text-align: center;
+	}
+
+	#botonesMovilesListaTrabajos button{
+		font-size: 1.5rem;
+	}
+	
+}

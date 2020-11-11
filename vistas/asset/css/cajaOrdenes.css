@@ -1,0 +1,241 @@
+.regresarADetallesGenerales{
+	cursor: pointer;
+}
+
+#respuestaSubidaImagen .previsualizacionImagenOrden{
+	position: relative;
+}
+
+#respuestaSubidaImagen .btnBorrarImagenOrden{
+	position: absolute;
+	bottom: 4%;
+	left: 3%;
+}
+
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+	
+	.imagenOrdenBox{
+		
+		max-width: 100%;
+		position: absolute;
+		object-fit: cover;
+		height: 100%;
+	}
+
+	.nombreLaboratorioBox{
+		
+		font-size: 1.1rem;
+
+	}
+
+	.elementoBox{
+		padding: 1rem;
+	}
+
+	.elementoBox:hover{
+		background-color: #f9f9f9;
+		border-radius: 5px;
+	}
+
+	.formularioGenerarOrden{
+		text-align: right;
+	}
+
+	.resumenOrdenes{
+		padding: 1rem;
+		border: 0.5px solid #a3a3a3;
+		background-color: white;
+		width: 300px;
+		border-radius: 8px;
+	}
+
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+	
+	.imagenOrdenBox{
+		max-width: 100%;
+		position: absolute;
+		object-fit: cover;
+		height: 90%;
+	}
+
+	.nombreLaboratorioBox{
+		
+		font-size: 1.1rem;
+
+	}
+
+	.elementoBox{
+		padding: 1rem;
+	}
+
+	.formularioGenerarOrden{
+		text-align: right;
+	}
+
+	.elementoBox:hover{
+		background-color: #f9f9f9;
+		border-radius: 5px;
+	}
+
+	.resumenOrdenes{
+		padding: 1rem;
+		border: 0.5px solid #a3a3a3;
+		background-color: white;
+		width: 300px;
+		border-radius: 8px;
+	}	
+
+}
+
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+@media(max-width: 991px) and (min-width: 768px){
+	
+	.imagenOrdenBox{
+		max-width: 100%;
+		position: absolute;
+		object-fit: cover;
+		height: 100%;
+	}
+
+	.nombreLaboratorioBox{
+		
+		font-size: 1.1rem;
+
+	}
+
+	.elementoBox{
+		padding: 1rem;
+	}
+
+	.elementoBox:hover{
+		background-color: #f9f9f9;
+		border-radius: 5px;
+	}
+
+	.formularioGenerarOrden{
+		text-align: center;
+	}
+	
+}
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+	
+	.imagenOrdenBox{
+		max-width: 100%;
+		position: absolute;
+		object-fit: cover;
+		height: 85%;
+	}
+
+	.nombreLaboratorioBox{
+		
+		font-size: 1.1rem;
+
+	}
+
+	.elementoBox{
+		padding: 1rem;
+	}
+
+	.elementoBox:hover{
+		background-color: #f9f9f9;
+		border-radius: 5px;
+	}
+
+	.elementoBox .nombreTrabajo{
+		font-size: 1.5rem;
+	}
+
+	.elementoBox .previo{
+		font-size: 1.3rem;
+	}
+
+	.elementoBox .paciente{
+		font-size: 1.3rem;
+	}
+
+	.formularioGenerarOrden{
+		text-align: center;
+	}
+
+	.btnGenerarOrden{
+		padding: 0.4rem;
+		text-align: center;
+	}
+
+	.btnEliminarOrdenCarrito{
+		padding: 0.4rem;
+	}
+
+	.btnEditarOrdenCarrito{
+		padding: 0.4rem;
+	}
+
+}
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+	
+	.imagenOrdenBox{
+		max-width: 100%;
+		/*position: absolute;*/
+		object-fit: cover;
+		height: 100px;
+		margin-bottom: 1rem;
+	}
+
+	.espacioImagen{
+		text-align: center;
+	}
+
+	.nombreLaboratorioBox{
+		
+		font-size: 1.1rem;
+
+	}
+
+	.elementoBox{
+		padding: 1rem;
+	}
+
+	.elementoBox:hover{
+		background-color: #f9f9f9;
+		border-radius: 5px;
+	}
+
+	.elementoBox .nombreTrabajo{
+		font-size: 1.5rem;
+	}
+
+	.elementoBox .previo{
+		font-size: 1.3rem;
+	}
+
+	.elementoBox .paciente{
+		font-size: 1.3rem;
+	}
+
+	.formularioGenerarOrden{
+		text-align: center;
+	}
+
+	.btnGenerarOrden{
+		padding: 0.3rem;
+		text-align: center;
+	}
+
+	.btnEliminarOrdenCarrito{
+		padding: 0.3rem;
+	}
+
+	.btnEditarOrdenCarrito{
+		padding: 0.3rem;
+	}
+	
+}

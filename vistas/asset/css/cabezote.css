@@ -1,0 +1,1436 @@
+/*ESTILOS DEL POPOVER DE INICIAR Y CERRAR SESION*/
+
+.popover-all {
+  background-color: white;
+  z-index: 999999;
+  margin-top: 16px;
+  border-radius: 6px;
+  width: 150px;
+  border: 1px solid #a5a5a5;
+  padding: 5px 5px;
+}
+
+.popover-content{
+	margin:5px 0px;
+}
+
+.popover-content:hover{
+	background-color: #eaeaea;
+	cursor: pointer;
+}
+
+/**/
+
+
+
+
+/*ESTILOS PARA EL CABEZOTE CON SESION INICIADA, DE MANERA GENERAL*/
+
+
+
+.opcionesCabezotePrincipal li{
+	display: inline-block;
+	padding-top: 0px;
+}
+
+.opcionesCabezotePrincipal li i{
+	padding: 10px 12px 10px 12px;
+	margin-left: 5px;
+	margin-right: 5px;
+	font-size: 1rem;
+	color:white;
+}
+
+.opcionesCabezotePrincipal .fa-bars:hover{
+	background-color: white;
+	color:#9ac76d;
+}
+
+.opcionesCabezotePrincipal li a{
+	text-decoration: none;
+	color:#a5a5a5;
+}
+
+.opcionesCabezotePrincipal li a:hover{
+	text-decoration: underline;
+	color: #595959;
+}
+
+.inicioSesionPrincipal li a .fa-shopping-cart{
+	padding-right: 30px; 
+}
+
+/*ESTILOS PARA EL CABEZOTE SIN INICIAR SESION*/
+
+.inicioLogin li{
+	display: inline-block;
+}
+
+.inicioLogin li i{
+	padding: 10px 5px 10px 5px;
+	font-size: 1.3rem;
+}
+
+.inicioLogin li a{
+	text-decoration: none;
+	color: #a5a5a5;
+}
+
+.inicioLogin li a:hover{
+	text-decoration: underline;
+	color: #595959;
+}
+
+.inicioLogin li a .fa-shopping-cart{
+	padding-right: 30px; 
+}
+
+/*ESTILO PARA EL CABEZOTE PRINCIPAL*/
+
+.cabezotePrincipal{
+	background-color: white;
+}
+
+.inicioSesionPrincipal li{
+	display: inline-block;
+	color:white;
+}
+
+.inicioSesionPrincipal li i{
+	padding: 10px 5px 10px 5px;
+	font-size: 1rem;
+}
+
+.inicioSesionPrincipal li a{
+	text-decoration: none;
+	color: #a5a5a5;
+}
+
+.inicioSesionPrincipal li a:hover{
+	text-decoration: underline;
+	color: #9ac76d;
+}
+
+/**/
+
+.cabezotePrincipal form{
+	padding-top: 10px;
+}
+
+.busquedaCabezote .tt-menu{
+	width: 100%!important;
+	background-color: white;
+	color: #7d7d7d;
+	font-size: 1.2rem!important;
+	text-align: left;
+	border-radius: 0px 0px 8px 8px;
+	padding: .7rem;
+	max-height: 200px;
+	overflow-y: auto;
+	border: 0.5px solid #7D7D7D;
+	border-top: none;
+}
+
+.buscarCabezote:selection{
+	background-color: #ededed;
+	color:black;
+}
+
+.buscarCabezote:placeholder{
+	color:#ededed;
+}
+
+.buscarCabezote{
+	border: none; 
+	width: 80%; 
+	font-size: 1.2rem;
+	background-color:white;
+	color:gray;
+	
+}
+
+#buscarOrden:selection{
+	background-color: #ededed;
+	color:black;
+}
+
+#buscarOrden:placeholder{
+	color:#ededed;
+}
+
+#buscarOrden{
+	border: none; 
+	width: 50%; 
+	background-color:white;
+	color:gray;
+}
+
+/*ESTILO DE LOS MODALES PARA INICIAR SESION Y REGISTRARSE*/
+
+
+.btnIniciarTecnico{
+	background-color: #9ac76d;
+	color:white;
+	border-radius: 8px;
+}
+
+.btnIniciarDentista{
+	background-color: #9ac76d;
+	color:white;
+	border-radius: 8px;
+}
+
+.olvidastePass{
+	text-decoration: none;
+	color:#727272;
+}
+
+.olvidastePass:hover{
+	color:#727272;
+}
+
+.enlaceRegistrarme:hover{
+	color:#9ac76d;
+}
+
+.inputBorderBottom{
+	border:none !important;
+	border-bottom: 1px solid #a5a5a5 !important;
+}
+
+.inputBorderBottom:focus{
+	border-bottom-color: #9ac76d;
+}
+
+.radioQueEs input[type="radio"]{
+	display:none;
+}
+
+.radioQueEs .etiqueta{
+	color: #9ac76d;
+	padding: 7px 15px 5px 41px;
+	display: inline-block;
+	position: relative;
+	border-radius: 8px;
+	cursor: pointer;
+	-transition:all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	-webkit-transition:all 0.4s ease; 	
+}
+
+.radioQueEs .etiqueta:hover{
+	background: rgba(255,153,0,0.3)
+}
+
+.radioQueEs .etiqueta:before{
+	content: "";
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	border: 2px solid #9ac76d;
+	background: none;
+	display: inline-block;
+	position: absolute;
+	top: 10px;
+	left: 17px;
+}
+
+.radioQueEs input[type="radio"]:checked + .etiqueta{
+	color:white;
+	background: rgba(255,153,0,1);
+	border-radius: 8px 8px;
+	padding: 5px 15px;
+}
+
+.radioQueEs input[type="radio"]:checked + .etiqueta:before{
+	display: none;
+}
+
+.btnRegistrarme{
+	background-color:#9ac76d;
+	color:white;
+}
+
+.btnRegistrarme:hover{
+	background-color: #83a85e;
+}
+
+.preguntasFrecuentes:hover{
+	color: #9ac76d;
+}
+
+.enlaceIniciarSesion:hover{
+	color: #9ac76d;	
+}
+
+.modal-body{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+
+.form-control:focus{
+	border-color: #9ac76d;
+}
+
+
+/*CLASES PARA EL CABEZOTE DE MANTENIMIENTO*/
+
+.mantenimiento{
+	color: white;
+	font-weight: bold;
+	background-color: #9ac76d;
+	text-align: center;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+
+/*PANEL DERECHO MENU PAGINA PRINCIPAL*/
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    background-color: #F8F8F8;
+    color: gray;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    -webkit-box-shadow: -4px 0px 10px -3px rgba(0,0,0,0.65);
+	-moz-box-shadow: -4px 0px 10px -3px rgba(0,0,0,0.65);
+	box-shadow: -4px 0px 10px -3px rgba(0,0,0,0.65);
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color:gray;
+    display: block;
+    transition: 0.35s;
+}
+
+.sidenav a:hover {
+    color: #D8D8D8;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+#main {
+    transition: margin-right .35s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/*PANEL DERECHO MENU PAGINA PRINCIPAL*/
+
+.sidenavGeneral {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    background-color:white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    -webkit-box-shadow: -4px 0px 10px -3px rgba(0,0,0,0.65);
+	-moz-box-shadow: -4px 0px 10px -3px rgba(0,0,0,0.65);
+	box-shadow: -4px 0px 10px -3px rgba(0,0,0,0.65);
+}
+
+.sidenavGeneral a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #9ac76d!important;
+    display: block;
+    transition: 0.35s;
+}
+
+.sidenavGeneral a:hover {
+    color:#e88800!important;
+}
+
+.sidenavGeneral .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    color:#9ac76d!important;
+}
+
+#main {
+    transition: margin-right .35s;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.buscadorMovil{
+	display: none;
+}
+
+
+
+
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+
+	.logoPrincipal{
+		width: 65px;
+	}
+	
+	/*ESTILOS PARA EL CABEZOTE CON SESION INICIADA EN PANTALLA PRINCIPAL*/
+
+	.bloqueFotoPerfil{
+		width: 60px;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil{
+		width: 45px;
+		height: 45px;
+		position: absolute;
+		border-radius: 100%;
+		right: 23px;
+		top:18%;
+		background-color: #9ac76d;
+		cursor: pointer;
+		object-fit: cover;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil .primeraLetraNombre{
+		text-align: center;
+		font-size: 2rem;
+		margin-top: 2px;
+	}
+
+	.txtLogo{
+		font-size: 28px;
+		position: absolute;
+		top: 16px;
+	}
+
+	.opcionesCabezote li{
+		display: inline-block;
+		padding-top: 0px;
+	}
+
+	.opcionesCabezote li i{
+		padding: 10px 12px 10px 12px;
+		margin-left: 5px;
+		margin-right: 5px;
+		font-size: 1.3rem;
+	}
+
+	/*.opcionesCabezote li i:hover{
+		background-color: #E0E0E0;
+	}*/
+
+	.opcionesCabezote li a{
+		text-decoration: none;
+		color:#a5a5a5;
+	}
+
+	.opcionesCabezote li a:hover{
+		text-decoration: underline;
+		color: #595959;
+	}
+
+	.fa-bars{
+		-transition:all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-webkit-transition:all 0.3s ease; 
+		border-radius: 50%;
+	}
+
+	.fa-bars:hover{
+		background-color: #E0E0E0;
+		border-radius: 50%;
+	}
+
+	.btnBuscarCabezote{
+		background-color:white;
+		color:#a5a5a5;
+	}
+
+	.btnBuscarCabezote:hover{
+		color:#9ac76d;
+	}
+
+	.campananotificacion{
+		position: relative;
+		font-size: 1.4rem!important;
+	}
+
+	.numnotificacion{
+		font-weight: bold;
+		position: absolute;
+		top: 0px;
+		right: 2px;
+		color:white;
+		padding: 0.3rem;
+		border-radius: 100%;
+		background-color: red;
+		font-size: 14px;
+	}
+	
+	/*ESTILOS PARA LAS notificacion*/
+
+	.mostrarnotificacion{
+		position: relative;
+	}
+
+	.dropdownnotificacion{
+		z-index:1;
+		position: absolute;
+		border: 0.5px solid #9b9b9b;
+		border-radius: 8px;
+		background-color: white;
+	}
+
+	.contenidonotificacion{
+		width: 300px;
+		height: 300px;
+		background-color: white;
+		overflow-y: scroll;
+		overflow-x: none;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		border-top: none;
+	}
+
+	.contenidonotificacion a{
+		text-decoration: none!important;
+	}
+
+	.cabezotenotificacion{
+		font-size: 0.8rem;
+		padding: 0.5rem .8rem;
+		background-color: #9ac76d;
+		color:white;
+		border-radius:8px 8px 0px 0px;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		font-weight:bold;
+	}
+
+	.masnotificacion{
+		padding: .8rem 0.3rem;
+		color:red!important;
+	}
+
+	.notificacion{
+		font-size: 1rem;
+		border-bottom: 0.5px solid #c6c6c6;
+		padding: 0.5rem 0rem;
+		cursor: pointer;
+		color:#606060;
+	}
+
+	.notificacion img{
+		width: 100%;
+		height: auto;
+		border-radius: 100%;
+		padding: 0.5rem;
+	}
+
+	.notificacion:hover{
+		background-color: rgba(255, 153, 0, 0.4);
+	}
+
+	.notificacion p{
+		padding: 0.5rem 0.5rem;
+		margin: 0;
+	}
+
+	.iconoNotificacion{
+		font-size: 0.8rem!important;
+		padding: 0!important;
+		margin: 0!important;
+		padding-right: 0.6rem!important;
+	}
+
+	.contenidonotificacion::-webkit-scrollbar { 
+	  /* solo oculta su visualizacion */
+	  display: none;
+	}
+
+	.mostrarnotificacion:hover .dropdownnotificacion{
+		z-index:1;
+		display: block
+	}
+
+	/**/
+
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+	
+	.logoPrincipal{
+		width: 65px;
+	}	
+
+	/*ESTILOS PARA EL CABEZOTE CON SESION INICIADA EN PANTALLA PRINCIPAL*/
+
+	.bloqueFotoPerfil{
+		width: 60px;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil{
+		width: 45px;
+		height: 45px;
+		position: absolute;
+		border-radius: 100%;
+		right: 23px;
+		top:18%;
+		background-color: #9ac76d;
+		cursor: pointer;
+		object-fit: cover;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil .primeraLetraNombre{
+		text-align: center;
+		font-size: 2rem;
+		margin-top: 2px;
+	}
+
+	.txtLogo{
+		font-size: 28px;
+		position: absolute;
+		top: 16px;
+	}
+
+	.opcionesCabezote li{
+		display: inline-block;
+		padding-top: 0px;
+	}
+
+	.opcionesCabezote li i{
+		padding: 10px 12px 10px 12px;
+		margin-left: 5px;
+		margin-right: 5px;
+		font-size: 1.3rem;
+	}
+
+	/*.opcionesCabezote li i:hover{
+		background-color: #E0E0E0;
+	}*/
+
+	.opcionesCabezote li a{
+		text-decoration: none;
+		color:#a5a5a5;
+	}
+
+	.opcionesCabezote li a:hover{
+		text-decoration: underline;
+		color: #595959;
+	}
+
+	.fa-bars{
+		-transition:all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-webkit-transition:all 0.3s ease; 
+		border-radius: 50%;
+	}
+
+	.fa-bars:hover{
+		background-color: #E0E0E0;
+		border-radius: 50%;
+	}
+
+	.btnBuscarCabezote{
+		background-color:white;
+		color:#a5a5a5;
+	}
+
+	.btnBuscarCabezote:hover{
+		color:#9ac76d;
+	}
+
+	.campananotificacion{
+		position: relative;
+		font-size: 1.4rem!important;
+	}
+
+	.numnotificacion{
+		font-weight: bold;
+		position: absolute;
+		top: 0px;
+		right: 2px;
+		color:white;
+		padding: 0.3rem;
+		border-radius: 100%;
+		background-color: red;
+		font-size: 14px;
+	}
+	
+	/*ESTILOS PARA LAS notificacion*/
+
+	.mostrarnotificacion{
+		position: relative;
+	}
+
+	.dropdownnotificacion{
+		z-index:1;
+		position: absolute;
+		border: 0.5px solid #9b9b9b;
+		border-radius: 8px;
+		background-color: white;
+	}
+
+	.contenidonotificacion{
+		width: 300px;
+		height: 300px;
+		background-color: white;
+		overflow-y: scroll;
+		overflow-x: none;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		border-top: none;
+	}
+
+	.contenidonotificacion a{
+		text-decoration: none!important;
+	}
+
+	.cabezotenotificacion{
+		font-size: 0.8rem;
+		padding: 0.5rem .8rem;
+		background-color: #9ac76d;
+		color:white;
+		border-radius:8px 8px 0px 0px;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		font-weight:bold;
+	}
+
+	.masnotificacion{
+		padding: .8rem 0.3rem;
+		color:red!important;
+	}
+
+	.notificacion{
+		font-size: 1rem;
+		border-bottom: 0.5px solid #c6c6c6;
+		padding: 0.5rem 0rem;
+		cursor: pointer;
+		color:#606060;
+	}
+
+	.notificacion img{
+		width: 100%;
+		height: auto;
+		border-radius: 100%;
+		padding: 0.5rem;
+	}
+
+	.notificacion:hover{
+		background-color: rgba(255, 153, 0, 0.4);
+	}
+
+	.notificacion p{
+		padding: 0.5rem 0.5rem;
+		margin: 0;
+	}
+
+	.iconoNotificacion{
+		font-size: 0.8rem!important;
+		padding: 0!important;
+		margin: 0!important;
+		padding-right: 0.6rem!important;
+	}
+
+	.contenidonotificacion::-webkit-scrollbar { 
+	  /* solo oculta su visualizacion */
+	  display: none;
+	}
+
+	.mostrarnotificacion:hover .dropdownnotificacion{
+		z-index:1;
+		display: block
+	}
+
+	/**/
+
+}
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+
+@media(max-width: 991px) and (min-width: 768px){
+
+	.buscadorMovilBoton{
+		font-size: 1.5rem;
+		width: 10%;
+	}
+
+	.logoPrincipal{
+		width: 65px;
+	}
+
+	.menuDispositivoMovil{
+		padding-top: 1rem;
+		font-size: 2rem;
+		color:#8e8e8e;
+	}	
+	
+	/*ESTILOS PARA EL CABEZOTE CON SESION INICIADA EN PANTALLA PRINCIPAL*/
+
+	.bloqueFotoPerfil{
+		width: 100px;
+		height: 100px;
+		margin-bottom: 10%;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil{
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		border-radius: 100%;
+		right: 0;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+		top:10%;
+		background-color: #9ac76d;
+		cursor: pointer;
+		object-fit: cover;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil .primeraLetraNombre{
+		text-align: center;
+		font-size: 4.7rem;
+		margin-top: 2px;
+	}
+
+	.txtLogo{
+		font-size: 28px;
+		position: absolute;
+		top: 16px;
+	}
+
+	.opcionesCabezote{
+		padding: 0;
+		margin: 0;
+	}
+
+	.opcionesCabezote li{
+		display: inline-block;
+		padding-top: 0px;
+	}
+
+	.opcionesCabezote li i{
+		padding: 10px 12px 10px 12px;
+		margin-left: 5px;
+		margin-right: 5px;
+		font-size: 1.3rem;
+	}
+
+	/*.opcionesCabezote li i:hover{
+		background-color: #E0E0E0;
+	}*/
+
+	.opcionesCabezote li a{
+		text-decoration: none;
+		color:#a5a5a5;
+	}
+
+	.opcionesCabezote li a:hover{
+		text-decoration: underline;
+		color: #595959;
+	}
+
+	.fa-bars{
+		-transition:all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-webkit-transition:all 0.3s ease; 
+		border-radius: 50%;
+	}
+
+	.fa-bars:hover{
+		background-color: #E0E0E0;
+		border-radius: 50%;
+	}
+
+	#mySidenav i{
+		padding-right: 8px;
+	}
+
+	.btnBuscarCabezote{
+		background-color:white;
+		color:#a5a5a5;
+	}
+
+	.btnBuscarCabezote:hover{
+		color:#9ac76d;
+	}
+
+	.campananotificacion{
+		position: relative;
+	}
+
+	.numnotificacion{
+		font-weight: bold;
+		position: absolute;
+		top: -5px;
+		right: -5px;
+		color:white;
+		padding: 0.2rem;
+		border-radius: 100%;
+		background-color: red;
+		font-size: 13px;
+	}
+	
+	/*ESTILOS PARA LAS notificacion*/
+
+	.mostrarnotificacion{
+		position: relative;
+	}
+
+	.dropdownnotificacion{
+		z-index:1;
+		position: absolute;
+		border: 0.5px solid #9b9b9b;
+		border-radius: 8px;
+		background-color: white;
+		right: 0;
+	}
+
+	.contenidonotificacion{
+		width: 250px;
+		height: 250px;
+		background-color: white;
+		overflow-y: scroll;
+		overflow-x: none;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		border-top: none;
+	}
+
+	.contenidonotificacion a{
+		text-decoration: none!important;
+	}
+
+	.cabezotenotificacion{
+		font-size: 0.8rem;
+		padding: 0.5rem .8rem;
+		background-color: #9ac76d;
+		color:white;
+		border-radius:8px 8px 0px 0px;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		font-weight:bold;
+	}
+
+	.masnotificacion{
+		padding: .8rem 0.3rem;
+		color:red!important;
+		font-size: 1rem;
+	}
+
+	.notificacion{
+		font-size: 1rem;
+		border-bottom: 0.5px solid #c6c6c6;
+		padding: 0.5rem 0rem;
+		cursor: pointer;
+		color:#606060;
+	}
+
+	.notificacion img{
+		width: 100%;
+		height: auto;
+		border-radius: 100%;
+		padding: 0.5rem;
+	}
+
+	.notificacion:hover{
+		background-color: rgba(255, 153, 0, 0.4);
+	}
+
+	.notificacion p{
+		padding: 0.5rem 0.5rem;
+		margin: 0;
+	}
+
+	.iconoNotificacion{
+		font-size: 0.8rem!important;
+		padding: 0!important;
+		margin: 0!important;
+		padding-right: 0.6rem!important;
+	}
+
+	.contenidonotificacion::-webkit-scrollbar { 
+	  /* solo oculta su visualizacion */
+	  display: none;
+	}
+
+	.mostrarnotificacion:hover .dropdownnotificacion{
+		z-index:1;
+		display: block
+	}
+
+	/**/
+
+}
+
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+
+	.buscadorMovilBoton{
+		font-size: 1.5rem;
+		width: 10%;
+	}
+
+	.logoPrincipal{
+		width: 65px;
+	}
+
+	.menuDispositivoMovil{
+		padding-top: 1rem;
+		font-size: 2rem;
+		color:#8e8e8e;
+	}	
+	
+	/*ESTILOS PARA EL CABEZOTE CON SESION INICIADA EN PANTALLA PRINCIPAL*/
+
+	.bloqueFotoPerfil{
+		width: 100px;
+		height: 100px;
+		margin-bottom: 10%;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil{
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		border-radius: 100%;
+		right: 0;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+		top:10%;
+		background-color: #9ac76d;
+		cursor: pointer;
+		object-fit: cover;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil .primeraLetraNombre{
+		text-align: center;
+		font-size: 4.7rem;
+		margin-top: 2px;
+	}
+
+	.txtLogo{
+		font-size: 28px;
+		position: absolute;
+		top: 16px;
+	}
+
+	.opcionesCabezote{
+		padding: 0;
+		margin: 0;
+	}
+
+	.opcionesCabezote li{
+		display: inline-block;
+		padding-top: 0px;
+	}
+
+	.opcionesCabezote li i{
+		padding: 10px 12px 10px 12px;
+		margin-left: 5px;
+		margin-right: 5px;
+		font-size: 1.3rem;
+	}
+
+	/*.opcionesCabezote li i:hover{
+		background-color: #E0E0E0;
+	}*/
+
+	.opcionesCabezote li a{
+		text-decoration: none;
+		color:#a5a5a5;
+	}
+
+	.opcionesCabezote li a:hover{
+		text-decoration: underline;
+		color: #595959;
+	}
+
+	.fa-bars{
+		-transition:all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-webkit-transition:all 0.3s ease; 
+		border-radius: 50%;
+	}
+
+	.fa-bars:hover{
+		background-color: #E0E0E0;
+		border-radius: 50%;
+	}
+
+	#mySidenav i{
+		padding-right: 8px;
+	}
+
+	.btnBuscarCabezote{
+		background-color:white;
+		color:#a5a5a5;
+	}
+
+	.btnBuscarCabezote:hover{
+		color:#9ac76d;
+	}
+
+	.campananotificacion{
+		position: relative;
+	}
+
+	.numnotificacion{
+		font-weight: bold;
+		position: absolute;
+		top: -5px;
+		right: -5px;
+		color:white;
+		padding: 0.2rem;
+		border-radius: 100%;
+		background-color: red;
+		font-size: 13px;
+	}
+
+	/*ESTILOS PARA LAS notificacion*/
+
+	.mostrarnotificacion{
+		position: relative;
+	}
+
+	.dropdownnotificacion{
+		z-index:1;
+		position: absolute;
+		border: 0.5px solid #9b9b9b;
+		border-radius: 8px;
+		background-color: white;
+		right: 0;
+	}
+
+	.contenidonotificacion{
+		width: 250px;
+		height: 250px;
+		background-color: white;
+		overflow-y: scroll;
+		overflow-x: none;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		border-top: none;
+	}
+
+	.contenidonotificacion a{
+		text-decoration: none!important;
+	}
+
+	.cabezotenotificacion{
+		font-size: 0.8rem;
+		padding: 0.5rem .8rem;
+		background-color: #9ac76d;
+		color:white;
+		border-radius:8px 8px 0px 0px;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		font-weight:bold;
+	}
+
+	.masnotificacion{
+		padding: .8rem 0.3rem;
+		color:red!important;
+		font-size: 1rem;
+	}
+
+	.notificacion{
+		font-size: 1rem;
+		border-bottom: 0.5px solid #c6c6c6;
+		padding: 0.5rem 0rem;
+		cursor: pointer;
+		color:#606060;
+	}
+
+	.notificacion img{
+		width: 100%;
+		height: auto;
+		border-radius: 100%;
+		padding: 0.5rem;
+	}
+
+	.notificacion:hover{
+		background-color: rgba(255, 153, 0, 0.4);
+	}
+
+	.notificacion p{
+		padding: 0.5rem 0.5rem;
+		margin: 0;
+	}
+
+	.iconoNotificacion{
+		font-size: 0.8rem!important;
+		padding: 0!important;
+		margin: 0!important;
+		padding-right: 0.6rem!important;
+	}
+
+	.contenidonotificacion::-webkit-scrollbar { 
+	  /* solo oculta su visualizacion */
+	  display: none;
+	}
+
+	.mostrarnotificacion:hover .dropdownnotificacion{
+		z-index:1;
+		display: block
+	}
+
+	/**/
+
+
+}
+
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+
+	.buscadorMovilBoton{
+		font-size: 1.5rem;
+		width: 15%;
+	}
+
+	.container-fluid{
+		padding: 0!important;
+	}
+
+
+	.logoPrincipal{
+		width: 55px;	
+	}
+
+	.menuDispositivoMovil{
+		padding-top: 0.9rem;
+		font-size: 1.8rem;
+		color:#8e8e8e;
+	}
+	
+	/*ESTILOS PARA EL CABEZOTE CON SESION INICIADA EN PANTALLA PRINCIPAL*/
+
+	.bloqueFotoPerfil{
+		width: 100px;
+		height: 100px;
+		margin-bottom: 10%;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil{
+		width: 100px;
+		height: 100px;
+		position: absolute;
+		border-radius: 100%;
+		right: 0;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+		top:10%;
+		background-color: #9ac76d;
+		cursor: pointer;
+		object-fit: cover;
+	}
+
+	.bloqueFotoPerfil .fotoPerfil .primeraLetraNombre{
+		text-align: center;
+		font-size: 4.7rem;
+		margin-top: 2px;
+	}
+
+	.txtLogo{
+		font-size: 24px;
+		position: absolute;
+		top: 13px;
+	}
+
+	.opcionesCabezote{
+		padding: 0;
+		margin: 0;
+	}
+
+	.opcionesCabezote li{
+		display: inline-block;
+		padding-top: 0px;
+	}
+
+	.opcionesCabezote li i{
+		padding: 10px 12px 10px 12px;
+		margin-left: 5px;
+		margin-right: 5px;
+		font-size: 1.3rem;
+	}
+
+	/*.opcionesCabezote li i:hover{
+		background-color: #E0E0E0;
+	}*/
+
+	.opcionesCabezote li a{
+		text-decoration: none;
+		color:#a5a5a5;
+	}
+
+	.opcionesCabezote li a:hover{
+		text-decoration: underline;
+		color: #595959;
+	}
+
+	.fa-bars{
+		-transition:all 0.3s ease;
+		-o-transition: all 0.3s ease;
+		-webkit-transition:all 0.3s ease; 
+		border-radius: 50%;
+	}
+
+	.fa-bars:hover{
+		background-color: #E0E0E0;
+		border-radius: 50%;
+	}
+
+	#mySidenav i{
+		padding-right: 8px;
+	}
+
+	.btnBuscarCabezote{
+		background-color:white;
+		color:#a5a5a5;
+		font-size: 1.5rem;
+		padding: 0;
+	}
+
+	.btnBuscarCabezote:hover{
+		color:#9ac76d;
+	}
+
+	.campananotificacion{
+		position: relative;
+	}
+
+	.numnotificacion{
+		font-weight: bold;
+		position: absolute;
+		top: -5px;
+		right: -5px;
+		color:white;
+		padding: 0.2rem;
+		border-radius: 100%;
+		background-color: red;
+		font-size: 13px;
+	}
+
+	/*ESTILOS PARA LAS notificacion*/
+
+	.mostrarnotificacion{
+		position: relative;
+	}
+
+	.dropdownnotificacion{
+		z-index:1;
+		position: absolute;
+		border: 0.5px solid #9b9b9b;
+		border-radius: 8px;
+		background-color: white;
+		right: 0;
+	}
+
+	.contenidonotificacion{
+		width: 250px;
+		height: 250px;
+		background-color: white;
+		overflow-y: scroll;
+		overflow-x: none;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		border-top: none;
+	}
+
+	.contenidonotificacion a{
+		text-decoration: none!important;
+	}
+
+	.cabezotenotificacion{
+		font-size: 0.8rem;
+		padding: 0.5rem .8rem;
+		background-color: #9ac76d;
+		color:white;
+		border-radius:8px 8px 0px 0px;
+		border: 0.5px solid #9b9b9b;
+		border-right: none;
+		font-weight:bold;
+	}
+
+	.masnotificacion{
+		padding: .8rem 0.3rem;
+		color:red!important;
+		font-size: 1rem;
+	}
+
+	.notificacion{
+		font-size: 1rem;
+		border-bottom: 0.5px solid #c6c6c6;
+		padding: 0.5rem 0rem;
+		cursor: pointer;
+		color:#606060;
+	}
+
+	.notificacion img{
+		width: 100%;
+		height: auto;
+		border-radius: 100%;
+		padding: 0.5rem;
+	}
+
+	.notificacion:hover{
+		background-color: rgba(255, 153, 0, 0.4);
+	}
+
+	.notificacion p{
+		padding: 0.5rem 0.5rem;
+		margin: 0;
+	}
+
+	.iconoNotificacion{
+		font-size: 0.8rem!important;
+		padding: 0!important;
+		margin: 0!important;
+		padding-right: 0.6rem!important;
+	}
+
+	.contenidonotificacion::-webkit-scrollbar { 
+	  /* solo oculta su visualizacion */
+	  display: none;
+	}
+
+	.mostrarnotificacion:hover .dropdownnotificacion{
+		z-index:1;
+		display: block
+	}
+
+	/**/
+
+
+}

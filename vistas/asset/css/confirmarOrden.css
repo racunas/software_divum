@@ -1,0 +1,196 @@
+.confirmacionOrden img{
+	width: 80px;
+}
+
+.confirmacionOrden .nombreDoctor{
+	text-align: left;
+}
+
+.confirmacionOrden .nombreTecnico{
+	text-align: right;
+}
+
+.informacionOrden{
+	border: 1px solid #727272;
+	border-radius: 8px;
+	height: auto;
+	padding: 15px 18px;
+}
+
+.inputFalse:after{
+	content: "";
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	border: 2px solid #9ac76d;
+	background: none;
+	display: inline-block;
+	position: relative;
+	left: 10px;
+	top:3px;
+}
+
+.inputFalseSelected:after{
+	content: "";
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	background-color: #9ac76d;
+	display: inline-block;
+	position: relative;
+	left: 10px;
+	top:3px;
+}
+
+.imagenesOrden img{
+	width: 100%;
+	height: auto;
+	object-fit: cover;
+}
+
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+	
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+
+}
+
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+@media(max-width: 991px) and (min-width: 768px){
+
+	
+
+	.confirmacionOrden img{
+		width: 80px;
+	}
+
+	.informacionOrden{
+		border: 1px solid #727272;
+		border-radius: 8px;
+		height: auto;
+		padding: 15px 18px;
+	}
+
+	.inputFalse:after{
+		content: "";
+		width: 17px;
+		height: 17px;
+		border-radius: 50%;
+		border: 2px solid #9ac76d;
+		background: none;
+		display: inline-block;
+		position: relative;
+		left: 10px;
+		top:3px;
+	}
+
+	.inputFalseSelected:after{
+		content: "";
+		width: 17px;
+		height: 17px;
+		border-radius: 50%;
+		background-color: #9ac76d;
+		display: inline-block;
+		position: relative;
+		left: 10px;
+		top:3px;
+	}
+
+	.imagenesOrden img{
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+	}
+
+}
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+	.confirmacionOrden img{
+		width: 60px;
+	}
+
+	.confirmacionOrden .nombreDoctor{
+		text-align: left;
+	}
+
+	.confirmacionOrden .nombreTecnico{
+		text-align: left;
+	}
+	
+	#botonesMovilesConfirmarOrden button{
+		font-size: 1.5rem;
+	}
+	
+	#botonesMovilesConfirmarOrden .regresar{
+		background-color: #FFF;
+		border-color: #F0F0F0;
+		
+	}
+
+	#botonesMovilesConfirmarOrden .regresar button{
+		border-radius: 0!important;
+		border-color: #FFF;
+		text-align: center!important;
+		padding: 8px!important;
+		width: 100%;
+	}
+
+	#botonesMovilesConfirmarOrden .confirmar{
+		background-color: #9ac76d;
+	}
+
+	#botonesMovilesConfirmarOrden .confirmar button{
+		padding: 8px!important;
+		width: 100%;
+		text-align: center;
+	}
+}
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+
+	.confirmacionOrden img{
+		width: 60px;
+	}
+
+	.confirmacionOrden .nombreDoctor{
+		text-align: left;
+	}
+
+	.confirmacionOrden .nombreTecnico{
+		text-align: left;
+	}
+	
+	#botonesMovilesConfirmarOrden button{
+		font-size: 1.5rem;
+	}
+	
+	#botonesMovilesConfirmarOrden .regresar{
+		background-color: #FFF;
+		border-color: #F0F0F0;
+		
+	}
+
+	#botonesMovilesConfirmarOrden .regresar button{
+		border-radius: 0!important;
+		border-color: #FFF;
+		text-align: center!important;
+		padding: 8px!important;
+		width: 100%;
+	}
+
+	#botonesMovilesConfirmarOrden .confirmar{
+		background-color: #9ac76d;
+	}
+
+	#botonesMovilesConfirmarOrden .confirmar button{
+		padding: 8px!important;
+		width: 100%;
+		text-align: center;
+	}
+}

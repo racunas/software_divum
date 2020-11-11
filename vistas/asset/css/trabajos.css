@@ -1,0 +1,67 @@
+.pagination{
+	justify-content: center;
+}
+
+.pagination a{
+	color: #9ac76d;
+}
+
+.page-item.active .page-link{
+	background-color: #9ac76d!important;
+	border-color: #9ac76d!important;
+}
+
+.page-link:hover{
+	color: white!important;
+	background-color: #9ac76d!important;
+}
+
+.itemTrabajo{
+	
+	border: 1px solid #cecece;
+	padding-bottom: 5px;
+
+}
+
+.cabeceraTablaTrabajos{
+	padding: 1rem;
+	border: 1px solid rgba(0,0,0,0.1);
+	margin: 0rem;
+	background-color: rgba(0,0,0,0.1);
+}
+
+.cuerpoTablaTrabajos{
+	margin: 0.2rem 0rem;
+	padding: 0.8rem 1rem;
+}
+
+.cuerpoTablaTrabajos span{
+	
+}
+
+.cuerpoTablaTrabajos:hover{
+	background-color: rgba(0,0,0,0.05);
+}
+
+.trabajoUrgente{
+	padding: 0.2rem 1rem;
+	margin: 0.2rem 0rem;
+	/*text-decoration:line-through;*/
+}
+
+.btnEliminarTrabajo{
+	cursor: pointer;
+}
+
+.btnBuscarTrabajo{
+	background-color: transparent;
+}
+
+#buscarTrabajo{
+	border: none;
+}
+
+.barraNavegacionTrabajos{
+	overflow-y:auto;
+	flex-wrap: nowrap!important;
+}

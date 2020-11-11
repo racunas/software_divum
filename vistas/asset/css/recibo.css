@@ -1,0 +1,70 @@
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+	.recibo{
+		border: 1px solid #727272;
+		border-radius: 8px;
+		padding: 30px 35px;
+		margin-bottom: 30px;
+	}
+
+	.recibo img{
+		width: 80px;
+	}
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+	.recibo{
+		border: 1px solid #727272;
+		border-radius: 8px;
+		padding: 30px 35px;
+		margin-bottom: 30px;
+	}
+
+	.recibo img{
+		width: 80px;
+	}
+}
+
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+@media(max-width: 991px) and (min-width: 768px){
+	.recibo{
+		border: 1px solid #727272;
+		border-radius: 8px;
+		padding: 30px 35px;
+		margin-bottom: 30px;
+	}
+
+	.recibo img{
+		width: 80px;
+	}
+
+}
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+	.recibo{
+		border-radius: 8px;
+		padding: 30px 35px;
+		margin-bottom: 30px;
+	}
+
+	.recibo img{
+		width: 80px;
+	}
+}
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+	.recibo{
+		border-radius: 8px;
+		padding: 15px 10px;
+		margin-bottom: 30px;
+	}
+
+	.recibo img{
+		width: 70px;
+	}
+	
+}

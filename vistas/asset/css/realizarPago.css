@@ -1,0 +1,198 @@
+.listaPago{
+	letter-spacing: 1pt;
+}
+
+.listaPagoFinal{
+
+	font-size: 17px;
+	letter-spacing: 1pt;
+}
+
+.radioPago img{
+	width: auto;
+	height: 100px;
+	object-fit: cover;
+}
+
+.radioPago input[type="radio"]{
+	display:none;
+}
+
+.radioPago .etiqueta{
+	font-size: 18px;
+	color: #009fe3;
+	padding: 7px 15px 5px 41px;
+	display: inline-block;
+	position: relative;
+	border-radius: 8px;
+	cursor: pointer;
+	-transition:all 0.4s ease;
+	-o-transition: all 0.4s ease;
+	-webkit-transition:all 0.4s ease; 	
+}
+
+.radioPago .etiqueta:hover{
+	background: rgba(0, 159, 227, 0.2);
+}
+
+.radioPago .etiqueta:before{
+	content: "";
+	width: 17px;
+	height: 17px;
+	border-radius: 50%;
+	border: 2px solid #009fe3;
+	background: none;
+	display: inline-block;
+	position: absolute;
+	top: 12px;
+	left: 17px;
+}
+
+.radioPago input[type="radio"]:checked + .etiqueta{
+	color:white;
+	background: rgba(0, 159, 227, 1);
+	border-radius: 8px 8px;
+	padding: 5px 15px;
+}
+
+.radioPago input[type="radio"]:checked + .etiqueta:before{
+	display: none;
+}
+
+
+/*ESTILOS DE LOS BOTONES DE PAGO*/
+
+.formaPago {
+	
+	font-size: 1.2em;
+	cursor: pointer;
+	padding: 25px 10px;
+
+}
+
+.formaPago:hover{
+	background-color: rgba(168, 168, 168, 0.3);
+	transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	border-radius: 5px 5px 5px 5px;
+	padding: 25px 10px;
+}
+
+.oxxoPago{
+	width: 50px;
+	max-height: auto;
+}
+
+/***********************************/
+.txtMastercard{
+	color:#ff5f00;
+}
+
+.txtVisa{
+	color:#1a1f71;
+}
+
+.txtAmex{
+	color:#6cc4ee;
+}
+
+.txtOxxo{
+	color:#e23d24;
+}
+
+.txtPaypal{
+	color: #3b7bbf;
+}
+
+.txtTransfer{
+	color:#7faaef;
+}
+
+
+
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+	
+
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+	
+
+}
+
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+@media(max-width: 991px) and (min-width: 768px){
+	
+
+}
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+	
+	/*ESTILOS DE LOS BOTONES DE PAGO*/
+
+	.formaPago {
+		
+		font-size: 1em;
+		cursor: pointer;
+		padding: 25px 10px;
+
+	}
+
+	.formaPago:hover{
+		background-color: rgba(168, 168, 168, 0.3);
+		transform: scale(1.05);
+		-webkit-transform: scale(1.05);
+		border-radius: 5px 5px 5px 5px;
+		padding: 25px 10px;
+	}
+
+	.oxxoPago{
+		width: 50px;
+		max-height: auto;
+	}
+
+	#flotante{
+		color:#FFF;
+		background: #000;
+		height: 50px;
+	}
+
+}
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+	
+	/*ESTILOS DE LOS BOTONES DE PAGO*/
+
+	.formaPago {
+		
+		font-size: 1em;
+		cursor: pointer;
+		padding: 25px 10px;
+
+	}
+
+	.formaPago:hover{
+		background-color: rgba(168, 168, 168, 0.3);
+		transform: scale(1.05);
+		-webkit-transform: scale(1.05);
+		border-radius: 5px 5px 5px 5px;
+		padding: 25px 10px;
+	}
+
+	.oxxoPago{
+		width: 40px;
+		max-height: auto;
+	}
+
+	#flotante{
+		color:#FFF;
+		background: #000;
+		height: 50px;
+	}
+
+}

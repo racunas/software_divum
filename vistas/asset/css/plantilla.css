@@ -1,0 +1,342 @@
+body {
+	font-family: 'Questrial', sans-serif;
+	margin: 0;
+	margin-bottom: 200px;
+	font-size: 17px!important;
+}
+
+.separacionFooter{
+	padding-bottom: 200px !important;
+}
+
+html {
+  	min-height: 100%;
+  	position: relative;
+}
+
+footer {
+	background-color: #7D7D7D;
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 200px;
+	padding:1.5rem 0;
+	margin-top: 50px;
+	color: white;
+
+}
+
+footer .fondoBuscalab{
+	height: 30px;
+	padding-top: 3px;
+	font-size: 1.5rem;
+	font-weight: bold;
+}
+
+footer ul{
+	
+	list-style: none;
+	padding: 0;
+
+}
+
+a:hover{
+	text-decoration: underline;
+	text-decoration-color: #606060;
+	color:#727272;
+}
+
+a{
+	text-decoration: none;
+	color:#727272;
+}
+
+a.noDecoration{
+	text-decoration: none;
+	color:#727272;
+}
+
+a.colorBuscalab{
+	color:#9ac76d;
+}
+
+input.form-control.cpLaboratorio, input.form-control.calleLaboratorio{
+	font-size: 1.3rem;
+}
+
+select.form-control.coloniaLaboratorio{
+	font-size: 1.3rem;
+}
+
+.fondoGris{
+	background-color: #7D7D7D;
+}
+
+.fondoBuscalab{
+	background-color: #9ac76d;
+}
+
+.alert{
+	cursor: pointer;
+}
+
+.txtVerde{
+	color:#467023;
+}
+
+.txtAmarillo{
+	color:#dd9700;
+}
+
+.nav .active{
+	background-color: #9ac76d!important;
+	color:white;
+	font-weight: bold;
+}
+
+.nav .nav-link{
+	color:#6d6d6d;
+}
+
+.nav .nav-link:hover{
+	background-color: rgba(255, 153, 0, 0.2);
+}
+
+.colorGris{
+	color: #6d6d6d;
+}
+
+.txtGrande{
+	font-size: 1.2rem;
+}
+
+.txtPie{
+	color:white !important;
+	font-size: 20px;
+}
+
+.txtCorto{
+	overflow:hidden;
+    white-space:nowrap;
+    text-overflow: ellipsis;
+}
+
+.txtNegro{
+	color:black;
+}
+
+.colorDantu{
+	color: #9ac76d;
+}
+
+.colorBuscalab{
+	color: #9ac76d;
+}
+
+.colorBuscalabGris{
+	color:#a5a5a5;
+}
+
+.fondoDantu{
+	background-color: #9ac76d;
+	color:white;
+}
+
+.fondoBuscalab{
+	background-color: #9ac76d;
+	color: white;
+}
+
+.fondoBlanco{
+	background-color: white;
+}
+
+.txtBlanco{
+	color: white!important;
+}
+
+.txtAzul{
+	
+	color:#3568ce;
+}
+
+.fondoBuscalabGris{
+	background-color: #a5a5a5;
+	color:white;
+}
+
+.btnBuscalab{
+	color:white;
+	background-color: #9ac76d;
+	border-radius: 8px;
+	padding: 5px 45px;
+}
+
+.btnBuscalab:hover{
+	background-color: #83a85e;
+}
+
+.noPadding{
+	padding:0;
+}
+
+.btnOutlineBuscalab{
+	color:#9ac76d;
+	background-color: white;
+	border-radius: 8px;
+	padding: 6px 45px;
+	border-color: #9ac76d;
+}
+
+.btn-outline-secondary{
+	border-radius: 8px!important;
+}
+
+.btnOutlineBuscalab:hover{
+	color:white;
+	background-color: #9ac76d;
+	border-color: #9ac76d;
+}
+
+.btnDantu{
+	color:white;
+	background-color: #9ac76d;
+	border-radius: 8px;
+	padding: 5px 45px;
+}
+
+.bordesRedondos{
+	border-radius: 8px;
+}
+
+.bordesRedondosTop{
+	border-radius: 8px 8px 0px 0px;
+}
+
+.btnDantu:hover{
+	background-color: #83a85e;
+}
+
+.enlaceDantu{
+	color:#9ac76d;
+	text-decoration: none;
+}
+
+.enlaceDantu:hover{
+	text-decoration: underline!important;
+	color:#9ac76d;
+}
+
+.text-muted{
+	color:#727272!important;
+}
+
+.separacionEnorme{
+	margin-top: 200px;
+}
+
+.hidden{
+	display: none;
+}
+
+.txtPequeño{
+	font-size: 0.9rem;
+}
+
+.txtEnorme{
+	font-size: 1.5rem;
+}
+
+.inputError{
+	border-color: red!important;
+}
+
+.cerrarSesion{
+	cursor: pointer;
+	color:red;
+}
+
+.bold{
+	font-weight: bold;
+}
+
+.txtIcono{
+	font-size: 25px;
+}
+
+.txtRojo{
+	color: #a82c00;
+}
+
+.fixed{
+	position:fixed; 
+	top:85px;
+}
+
+/*ESTILOS DE LA NOTIFICACION*/
+
+.mnSmallBox{
+	border-radius: 0px 10px 10px 0px;
+}
+
+.mnSbContent{
+	padding: 15px 5px 5px 10px!important;
+}
+
+/****************************/
+
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+
+	.col-xl-0{
+		display: none;
+	}
+	
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+
+	.col-lg-0{
+		display: none;
+	}
+	
+}
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+
+@media(max-width: 991px) and (min-width: 768px){
+
+	.col-md-0{
+		display: none;
+	}
+
+}
+
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+
+	.col-sm-0{
+		display: none;
+	}
+
+	.modal-body{
+		margin:0!important;
+	}	
+
+}
+
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+
+	.col-0{
+		display: none;
+	}
+
+	.modal-body{
+		margin:0!important;
+	}
+	
+}

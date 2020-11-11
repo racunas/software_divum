@@ -1,0 +1,260 @@
+
+.totalOrdenes i{
+	font-size: 5rem;
+	margin-bottom: 1rem;
+	transition: all 0.3s ease-in-out;
+}
+
+.ordenesFinalizadas i{
+	font-size: 5rem;
+	margin-bottom: 1rem;
+	transition: all 0.3s ease-in-out;
+}
+
+.calificacionGeneral i{
+	font-size: 5rem;
+	margin-bottom: 1rem;
+	transition: all 0.3s ease-in-out;
+}
+
+.totalOrdenes:hover > i{
+	color:#9ac76d;
+}
+
+.ordenesFinalizadas:hover > i{
+	color:#9ac76d;
+}
+
+.calificacionGeneral:hover > i{
+	color:#9ac76d;
+}
+
+.fotoPerfil img{
+	
+	width: 200px;
+	height: 200px;
+	border-radius: 10px;
+	border: 1px solid #a5a5a5;
+	object-fit: cover;
+	cursor: pointer;
+}
+
+.fotoPerfil label{
+	cursor: pointer;
+}
+
+.datosPerfil .dato, .datosPerfilTecnico .dato{
+
+	padding-left: 25px;
+
+}
+
+.previsualizacionFotoPerfil{
+	
+	width:auto;
+	height: 100%;
+	cursor: crosshair;
+
+}
+
+#respuestaSubidaFotoPerfil{
+	height: 350px;
+	width: 100%;
+	background-color: rgba(0,0,0,0.1);
+	text-align: center;
+	margin: 20px 0px;
+}
+
+.previsualizacionFotoPreOrden{
+	
+	width:auto;
+	height: 100%;
+	cursor: crosshair;
+
+}
+
+#respuestaSubidaFotoPreOrden{
+	height: 350px;
+	width: 100%;
+	background-color: rgba(0,0,0,0.1);
+	text-align: center;
+	margin: 20px 0px;
+}
+
+
+/*********************************************/
+
+.imagenPreOrden{
+	max-width: 100%;
+	height: 100px;
+	padding: 0.5em;
+}
+
+.imagenPreOrden .sinImagen{
+	
+	background-color: rgba(217,217,217,0.7);
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+}
+
+.imagenPreOrden .sinImagen label{
+	background-color: white;
+	padding:8px 10px;
+	border-radius: 8px;
+	font-size: 0.9rem;
+	cursor: pointer;
+}
+
+
+.imagenPreOrden .sinImagen label:hover{
+	background-color: #9ac76d;
+	color: white;
+}
+
+/***********************************************/
+
+.imagenPreOrden .conImagen{
+	
+	background-color: rgba(217,217,217,0.7);
+	width: 100%;
+	height: 100%;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	position: relative;
+}
+
+.conImagen .previsualizacionImagenPreOrden{
+	
+	width: 100%;
+	object-fit: cover;
+	height: 100px;
+	transition: height 1s ease-in-out;
+
+}
+
+/*.conImagen .previsualizacionImagenPreOrden:hover{
+	
+	height: auto;
+	transition: height 1s ease-in-out;
+
+}*/
+
+.imagenPreOrden .conImagen label{
+	background-color: white;
+	padding:5px 10px;
+	border-radius: 8px;
+	font-size: 0.8rem;
+	position: absolute;
+	bottom:0;
+	cursor: pointer;
+}
+
+
+.imagenPreOrden .conImagen label:hover{
+	background-color: #9ac76d;
+	color: white;
+}
+
+/************************************************/
+
+.fa-times{
+	cursor: pointer;
+}
+
+.eliminarDireccion{
+	cursor: pointer;
+	color:#c42d2d;
+}
+
+.progress-bar{
+	background-color: #9ac76d!important;
+}
+
+.direccion{
+	list-style: none;
+	padding-left: 0;
+}
+
+.seleccionado{
+	content: "";
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: 2px solid gray;
+	background: none;
+	display: inline-block;
+	padding-right: 5px;
+}
+
+.direccion .agregarDireccion{
+	cursor: pointer;
+}
+
+.icon-editar{
+	cursor: pointer;
+}
+
+.icon-editar:hover{
+	color: #83a85e;
+	font-weight: bold;
+}
+
+.completarEdicion{
+	cursor: pointer;
+}
+
+.completarEdicion:hover{
+	color: #83a85e;
+	font-weight: bold;
+}
+
+.fechaNacimiento input{
+	
+	background: white!important;
+
+}
+
+.undefined-outer{
+	border-style: none!important;
+}
+
+/*ESCRITORIO GRANDE XL*/
+@media (min-width: 1200px){
+	
+}
+
+/*ESCRITORIO MEDIANO O TABLET HORIZONTAL LG*/
+@media (max-width: 1199px) and (min-width: 992px){
+	
+}
+
+
+/*ESCRITORIO PEQUEÑO O TABLET VERTICAL MD*/
+@media(max-width: 991px) and (min-width: 768px){
+
+	.separacionTablet{
+		margin-top: 1rem;
+	}
+
+}
+
+/*TELÉFONO CELULAR SM*/
+@media(max-width: 767px) and (min-width: 576px){
+	.separacionMovil{
+		margin-top: 1rem!important;
+		padding-top: 6px!important;
+	}
+}
+
+/*TELÉFONO CELULAR XS*/
+@media (max-width: 575px){
+	.separacionMovil{
+		margin-top: 1rem!important;
+		padding-top: 6px!important;
+	}
+	
+}
