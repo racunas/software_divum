@@ -2,6 +2,9 @@
 date_default_timezone_set('UTC');
 date_default_timezone_set("America/Mexico_City");
 session_start();
+ini_set('display_errors', 0);
+ini_set('display_startup_errors', 0);
+error_reporting(E_ALL);
 
 include "../../../modelos/notificaciones.modelo.php";
 include "../../../modelos/perfil.modelo.php";
@@ -26,7 +29,7 @@ $fecha = date("Y-m-d");
 $url = $_POST['url'];
 $notificacion = "";
 
-$respuesta = modeloNotificacion::mdlObtenernotificacion($idUsuario,$tipo,$fecha);
+$respuesta = modeloNotificacion::mdlObtenerNotificaciones($idUsuario,$tipo,$fecha);
 //$datosUsuario = modeloPerfil::mdlDatosPerfil($idUsuario,$tipo);
 
 //$fotoPerfil = ($tipo == "tecnico") ? "tecnicos/".$datosUsuario['img_art'] : "dentistas/".$datosUsuario['img_perfil'];

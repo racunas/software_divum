@@ -37,30 +37,18 @@
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/resultados.css">
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/infoproducto.css">
 
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/recibo.css" <?php echo ($rutasCss[0] != 'recibo') ? 'disabled' : ''; ?>>
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/confirmarOrden.css" <?php echo ($rutasCss[0] != 'confirmar-orden') ? 'disabled' : ''; ?>>
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/ordenCompleta.css" <?php echo ($rutasCss[0] != 'orden-completa') ? 'disabled' : ''; ?>>
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/notificaciones.css" <?php echo ($rutasCss[0] != 'notificacion') ? 'disabled' : ''; ?>>
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/perfil.css" <?php echo ($rutasCss[0] != 'perfil') ? 'disabled' : ''; ?>>
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/cajaOrdenes.css" <?php echo ($rutasCss[0] != 'caja-ordenes') ? 'disabled' : ''; ?>>
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/listaTrabajos.css" <?php echo ( ($rutasCss[0] != 'lista-trabajos') && ($rutasCss[0] != 'trabajos') ) ? 'disabled' : ''; ?>>
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/realizarPago.css" <?php echo ( ($rutasCss[0] != 'realizar-pago') && ($rutasCss[0] != 'ordenes') ) ? 'disabled' : ''; ?>>
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/ordenes.css" <?php echo ($rutasCss[0] != 'ordenes') ? 'disabled' : ''; ?>>
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/trabajos.css" <?php echo ($rutasCss[0] != 'trabajos') ? 'disabled' : ''; ?>>
-
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/recibo.css" >
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/confirmarOrden.css" >
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/ordenCompleta.css" >
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/notificaciones.css">
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/perfil.css" >
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/cajaOrdenes.css" >
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/realizarPago.css">
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/ordenes.css" >
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/trabajos.css">
 	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/orden.css">
-
-	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/odontograma.css" <?php echo ( ($rutasCss[0] != 'pre-orden') && ($rutasCss[0] != 'caja-ordenes') ) ? 'disabled' : ''; ?>>
-
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/odontograma.css" >
+	<link rel="stylesheet" href="<?php echo $url; ?>vistas/asset/css/listaTrabajos.css" >
 
 	<!--FUENTE PRINCIPAL QUESTRIAL-->
 	<link href="<?php echo $url; ?>vistas/asset/css/questrial.css" rel="stylesheet">
@@ -185,13 +173,38 @@
 
 			case 'recibo':
 
+				/*if(isset($_SESSION['dentista']) || isset($_SESSION['tecnico'])){
+
+					echo '<input type="hidden" id="title" value="¡Pago exitoso! - Buscalab">';
+					echo '<input type="hidden" id="paginaActual" value="recibo">';
+
+					include "vistas/modulos/recibo.php";
+				
+				} else {
+
+					//SI NO EXISTE NINGUNA SESION, LO MANDAMOS A LA PAGINA PRINCIPAL
+					echo '<script>
+							index();
+						</script>';
+
+				}*/
+
 				break;
 
 			case 'confirmar-orden':
+				/*echo '<input type="hidden" id="title" value="Confirma tu orden - Buscalab">';
+				echo '<input type="hidden" id="paginaActual" value="confirmar-orden">';
+
+				include "vistas/modulos/confirmarOrden.php"; //PAGINA DE CONFIRMACION DE LA PÁGINA*/
 
 				break;
 
 			case 'orden-completa':
+
+				/*echo '<input type="hidden" id="title" value="Tu orden ha sido generada - Buscalab">';
+				echo '<input type="hidden" id="paginaActual" value="orden-completa">';
+
+				include "vistas/modulos/ordenCompleta.php"; //VISTA FINAL DE LA PÁGINA*/
 
 				break;
 
@@ -217,6 +230,14 @@
 				break;
 
 			case 'caja-ordenes':
+				/*if (isset($_SESSION['dentista'])) {
+
+					echo '<input type="hidden" id="title" value="Carrito de ordenes - Buscalab">';
+					echo '<input type="hidden" id="paginaActual" value="caja-ordenes">';
+
+					include "vistas/modulos/cajaOrdenes.php";
+
+				}*/
 
 				break;
 
@@ -262,18 +283,82 @@
 				break;
 
 			case 'realizar-pago':
+				/*if(isset($_SESSION['dentista'],$_POST['idBox'])){
+
+					echo '<input type="hidden" id="title" value="Realizar pago - Buscalab">';
+					echo '<input type="hidden" id="paginaActual" value="realizar-pago">';
+
+					include "vistas/modulos/realizarPago.php";
+				
+				} else {
+
+					//SI NO EXISTE NINGUNA SESION, LO MANDAMOS A LA PAGINA PRINCIPAL
+					echo '<script>
+							index();
+						</script>';
+
+				}*/
 			
 				break;
 
 			case 'ordenes':
+				/*if(isset($_SESSION['dentista']) || isset($_SESSION['tecnico'])){
+
+					if(isset($_GET['orden'])){
+
+						echo '<input type="hidden" id="title" value="Orden '.$_GET['orden'].' - Buscalab">';
+						echo '<input type="hidden" id="paginaActual" value="orden">';
+
+						include "vistas/modulos/orden.php";
+
+						include "vistas/modulos/calificacionModal.php";
+
+					} else {
+
+						echo '<input type="hidden" id="title" value="Mis ordenes - Buscalab">';
+						echo '<input type="hidden" id="paginaActual" value="ordenes">';
+
+						include "vistas/modulos/ordenes.php";
+
+					}
+
+				
+				} else {
+
+					//SI NO EXISTE NINGUNA SESION, LO MANDAMOS A LA PAGINA PRINCIPAL
+					echo '<script>
+							index();
+						</script>';
+
+				}*/
 
 				break;
 
 			case 'restablecer-password':
+				/*if(isset($_GET['key'])){
+
+					include "vistas/modulos/restablecerContraseña.php";
+
+				}*/
 
 				break;
 
 			case 'notificacion':
+				/*if(isset($_SESSION['dentista']) || isset($_SESSION['tecnico'])){
+
+					echo '<input type="hidden" id="title" value="Mis notificaciones - Buscalab">';
+					echo '<input type="hidden" id="paginaActual" value="notificaciones">';
+
+					include "vistas/modulos/notificaciones.php";
+				
+				} else {
+
+					//SI NO EXISTE NINGUNA SESION, LO MANDAMOS A LA PAGINA PRINCIPAL
+					echo '<script>
+							index();
+						</script>';
+
+				}*/
 				break;
 			
 			default:
