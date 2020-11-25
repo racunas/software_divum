@@ -178,7 +178,6 @@ class controladorOrden{
 			$especTrabajo = $_POST['descripcion'];
 			$tipoOrden = $_POST['tipoOrden']; //TIPO DE ORDEN, SI ES URGENTE U ORDINARIO
 			$dientesSeleccionados = substr($_POST['dientesSeleccionados'], 0, -1); //EL ULTIMO CAMPO DEL ARRAY NO VALE, ES NULL
-			$numDientesSeleccionados = $dientesSeleccionados - 1;
 
 
 			//////////////////////////////AQUI SE EMPIEZA CON TODO EL PROCESO DE COMPROBACION Y OBTENCION DE INFORMACION////////////////

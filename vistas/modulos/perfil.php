@@ -32,7 +32,7 @@ $arrayDatosPerfil = controladorPerfil::ctrDatosPerfil($id,$tipo);
 $contador = 1;
 $vacios = 0;
 
-$direccion = controladorPerfil::ctrdireccion($id,$tipo,NULL);
+$direccion = controladorPerfil::ctrDirecciones($id,$tipo,NULL);
 
 //print_r($direccion);
 
@@ -145,7 +145,7 @@ $porcientoPerfil = round(100 - ( ($vacios * 100) / ($contador) ));
 
 				if($tipo == "dentista"){
 
-					$direccion = controladorPerfil::ctrdireccion($id,$tipo,NULL); //SE ENVÍA NULL AL FINAL PORQUE QUIERO QUE ME TRAIGA TODAS LAS direccion EN UN ARRAY
+					$direccion = controladorPerfil::ctrDirecciones($id,$tipo,NULL); //SE ENVÍA NULL AL FINAL PORQUE QUIERO QUE ME TRAIGA TODAS LAS direccion EN UN ARRAY
 
 					if($direccion != NULL){
 
@@ -292,7 +292,7 @@ $porcientoPerfil = round(100 - ( ($vacios * 100) / ($contador) ));
 
 					$idDirec = $arrayDatosPerfil['id_rep'];
 
-					$direccion = controladorPerfil::ctrdireccion($id,$tipo,$idDirec); //SE ENVÍA NULL AL FINAL PORQUE QUIERO QUE ME TRAIGA TODAS LAS direccion EN UN ARRAY
+					$direccion = controladorPerfil::ctrDirecciones($id,$tipo,$idDirec); //SE ENVÍA NULL AL FINAL PORQUE QUIERO QUE ME TRAIGA TODAS LAS direccion EN UN ARRAY
 
 					//print_r($direccion);
 

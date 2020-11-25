@@ -14,13 +14,13 @@ class modeloBox{
 
 			if(strlen($stringImagenes) >= 1){
 
-				if( $db -> query("DELETE FROM archivos WHERE id_box = $idBox") ){
+				if( $db -> query("DELETE FROM imagenes WHERE id_box = $idBox") ){
 
 					$imagenesNuevas = explode(",", $stringImagenes);
 
 					for ($i=0; $i < count($imagenesNuevas); $i++) { 
 						
-						if(! $db -> query("INSERT INTO archivos (nombre, id_box) VALUES ('".$imagenesNuevas[$i]."', $idBox)") ){
+						if(! $db -> query("INSERT INTO imagenes (nombre, id_box) VALUES ('".$imagenesNuevas[$i]."', $idBox)") ){
 							$respuesta = false;
 						}
 
@@ -50,7 +50,7 @@ class modeloBox{
 
 		$db = new Conexion();
 
-		if( $db -> query("DELETE FROM archivos WHERE id_archivo = $idImagen and id_box = $idBox") ){
+		if( $db -> query("DELETE FROM imagenes WHERE id_archivo = $idImagen and id_box = $idBox") ){
 
 			return true;
 
@@ -86,7 +86,7 @@ class modeloBox{
 
 		$db = new Conexion();
 
-		$sql = $db -> query("SELECT protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, laboratorio.img_art imagen, disp_trab.precio precioProtesis, disp_orto.precio precioOrtodoncia, box.paciente, box.porcentajePagar, box.id_box FROM (box left join disp_trab on box.id_prod = disp_trab.id_disp_trab) left join disp_orto on box.id_prod_ort = disp_orto.id_ort left join protesis on disp_trab.id_pro = protesis.id_pro left join ortodoncia_prod on disp_orto.id_ort_prod = ortodoncia_prod.id_ort_prod, laboratorio WHERE box.id_usuario = $idUsuario and laboratorio.id_lab = disp_trab.id_lab UNION SELECT protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, laboratorio.img_art imagen, disp_trab.precio precioProtesis, disp_orto.precio precioOrtodoncia, box.paciente, box.porcentajePagar, box.id_box FROM (box left join disp_trab on box.id_prod = disp_trab.id_disp_trab) left join disp_orto on box.id_prod_ort = disp_orto.id_ort left join protesis on disp_trab.id_pro = protesis.id_pro left join ortodoncia_prod on disp_orto.id_ort_prod = ortodoncia_prod.id_ort_prod, laboratorio WHERE box.id_usuario = $idUsuario and laboratorio.id_lab = disp_orto.id_lab ORDER BY `paciente` ASC");
+		$sql = $db -> query("SELECT protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, laboratorio.img_art imagen, lista_precios_protesis.precio precioProtesis, lista_precios_ortodoncia.precio precioOrtodoncia, box.paciente, box.porcentajePagar, box.id_box FROM (box left join lista_precios_protesis on box.id_prod = lista_precios_protesis.id_lista_precios_protesis) left join lista_precios_ortodoncia on box.id_prod_ort = lista_precios_ortodoncia.id_ort left join protesis on lista_precios_protesis.id_pro = protesis.id_pro left join ortodoncia_prod on lista_precios_ortodoncia.id_ort_prod = ortodoncia_prod.id_ort_prod, laboratorio WHERE box.id_usuario = $idUsuario and laboratorio.id_lab = lista_precios_protesis.id_lab UNION SELECT protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, laboratorio.img_art imagen, lista_precios_protesis.precio precioProtesis, lista_precios_ortodoncia.precio precioOrtodoncia, box.paciente, box.porcentajePagar, box.id_box FROM (box left join lista_precios_protesis on box.id_prod = lista_precios_protesis.id_lista_precios_protesis) left join lista_precios_ortodoncia on box.id_prod_ort = lista_precios_ortodoncia.id_ort left join protesis on lista_precios_protesis.id_pro = protesis.id_pro left join ortodoncia_prod on lista_precios_ortodoncia.id_ort_prod = ortodoncia_prod.id_ort_prod, laboratorio WHERE box.id_usuario = $idUsuario and laboratorio.id_lab = lista_precios_ortodoncia.id_lab ORDER BY `paciente` ASC");
 
 		if( $db -> rows($sql) >= 1 ){
 
@@ -142,7 +142,7 @@ class modeloBox{
 
 		$db = new Conexion();
 
-		$sql = $db -> query("SELECT * FROM archivos WHERE id_box = $idBox");
+		$sql = $db -> query("SELECT * FROM imagenes WHERE id_box = $idBox");
 
 		if($db -> rows($sql) >= 1){
 

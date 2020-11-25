@@ -41,7 +41,7 @@ $etapaOrden = modeloOrden::mdlEtapaOrden($idHistOrd);
 $pdf = new TCPDF('P', 'mm', 'A4', true, 'UTF-8', false);
 	
 $pdf->SetCreator(PDF_CREATOR);
-$pdf->SetAuthor('Buscalab');
+$pdf->SetAuthor('DIVUM');
 $pdf->SetTitle('Orden de Laboratorio');
 
 $pdf->setPrintHeader(false); 
@@ -67,7 +67,7 @@ $content .= '
     </div>
 	
 	<div class="col-lg-6" style="text-align:left;">
-    	<span>Creador </span><a href="https://buscalab.com">Buscalab</a>
+    	<span>Creador </span>DIVUM SOFT
     </div>
 </div>
 ';

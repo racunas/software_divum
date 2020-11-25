@@ -20,7 +20,7 @@ if( isset($_SESSION['dentista']) ){
 
 	$btnOrdenarAhora = '<button class="btn btnBuscalab btn-block btnOrdenarAhora" name="ordenarAhora">Ordenar<i class="far fa-check-circle ml-2"></i></button>';
 
-	$direccion = controladorPerfil::ctrdireccion($_SESSION['dentista'],"dentista",NULL);
+	$direccion = controladorPerfil::ctrDirecciones($_SESSION['dentista'],"dentista",NULL);
 
 	//print_r($direccion);
 

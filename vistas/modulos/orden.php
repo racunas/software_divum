@@ -1,17 +1,18 @@
 <?php 
 
 //AQUI SE DEBE ESCRIBIR EL PROCEDIMIENTO PARA OBTENER INFORMACION DEL PAGO (PAYPAL)
-require "pasarelas/configPP.php";
-require "pasarelas/configMP.php";
+//require "pasarelas/configPP.php";
+//require "pasarelas/configMP.php";
 require_once "vendor/phpqrcode/qrlib.php";
 
 
-use PayPal\Api\Payment;
-use PayPal\Api\PaymentExecution;
+/*use PayPal\Api\Payment;
+use PayPal\Api\PaymentExecution;*/
 
 $idOrden = $_GET['orden'];
 
 if(isset($_SESSION['tecnico'])){
+
 
 	$idUsuario = $_SESSION['tecnico'];
 	$es = 'tecnico';
@@ -19,6 +20,7 @@ if(isset($_SESSION['tecnico'])){
 	/*ACTUALIZAR LA ORDEN, QUE YA LA VIO POR PRIMERA VEZ EL TÉCNICO*/
 
 	$etapasOrden = controladorOrden::ctrEtapasOrden($idOrden,$es);
+	//print_r($etapasOrden);
 	$idHistOrd = $etapasOrden[0]['id_hist_ord'];
 
 	$respuestaVistaOrden = controladorOrden::ctrOrdenVista($idHistOrd);
@@ -65,9 +67,9 @@ if(isset($_SESSION['tecnico'])){
 
 }
 
+
 $resumenOrden = controladorOrden::ctrResumenOrden($idUsuario,$es,$idOrden);
 
-//print_r($resumenOrden);
 
 if(!$resumenOrden){
 	echo '<script>

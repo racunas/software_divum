@@ -173,7 +173,7 @@
 
 			case 'recibo':
 
-				/*if(isset($_SESSION['dentista']) || isset($_SESSION['tecnico'])){
+				if(isset($_SESSION['dentista']) || isset($_SESSION['tecnico'])){
 
 					echo '<input type="hidden" id="title" value="¡Pago exitoso! - Buscalab">';
 					echo '<input type="hidden" id="paginaActual" value="recibo">';
@@ -187,24 +187,24 @@
 							index();
 						</script>';
 
-				}*/
+				}
 
 				break;
 
 			case 'confirmar-orden':
-				/*echo '<input type="hidden" id="title" value="Confirma tu orden - Buscalab">';
+				echo '<input type="hidden" id="title" value="Confirma tu orden - Buscalab">';
 				echo '<input type="hidden" id="paginaActual" value="confirmar-orden">';
 
-				include "vistas/modulos/confirmarOrden.php"; //PAGINA DE CONFIRMACION DE LA PÁGINA*/
+				include "vistas/modulos/confirmarOrden.php"; //PAGINA DE CONFIRMACION DE LA PÁGINA
 
 				break;
 
 			case 'orden-completa':
 
-				/*echo '<input type="hidden" id="title" value="Tu orden ha sido generada - Buscalab">';
+				echo '<input type="hidden" id="title" value="Tu orden ha sido generada - Buscalab">';
 				echo '<input type="hidden" id="paginaActual" value="orden-completa">';
 
-				include "vistas/modulos/ordenCompleta.php"; //VISTA FINAL DE LA PÁGINA*/
+				include "vistas/modulos/ordenCompleta.php"; //VISTA FINAL DE LA PÁGINA
 
 				break;
 
@@ -230,14 +230,14 @@
 				break;
 
 			case 'caja-ordenes':
-				/*if (isset($_SESSION['dentista'])) {
+				if (isset($_SESSION['dentista'])) {
 
 					echo '<input type="hidden" id="title" value="Carrito de ordenes - Buscalab">';
 					echo '<input type="hidden" id="paginaActual" value="caja-ordenes">';
 
 					include "vistas/modulos/cajaOrdenes.php";
 
-				}*/
+				}
 
 				break;
 
@@ -283,7 +283,7 @@
 				break;
 
 			case 'realizar-pago':
-				/*if(isset($_SESSION['dentista'],$_POST['idBox'])){
+				if(isset($_SESSION['dentista'],$_POST['idBox'])){
 
 					echo '<input type="hidden" id="title" value="Realizar pago - Buscalab">';
 					echo '<input type="hidden" id="paginaActual" value="realizar-pago">';
@@ -297,12 +297,12 @@
 							index();
 						</script>';
 
-				}*/
+				}
 			
 				break;
 
 			case 'ordenes':
-				/*if(isset($_SESSION['dentista']) || isset($_SESSION['tecnico'])){
+				if(isset($_SESSION['dentista']) || isset($_SESSION['tecnico'])){
 
 					if(isset($_GET['orden'])){
 
@@ -330,16 +330,16 @@
 							index();
 						</script>';
 
-				}*/
+				}
 
 				break;
 
 			case 'restablecer-password':
-				/*if(isset($_GET['key'])){
+				if(isset($_GET['key'])){
 
 					include "vistas/modulos/restablecerContraseña.php";
 
-				}*/
+				}
 
 				break;
 

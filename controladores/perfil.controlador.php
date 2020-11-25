@@ -18,10 +18,10 @@ class controladorPerfil{
 		
 	}
 
-	public static function ctrdireccion($id,$tipo,$idDirec){
+	public static function ctrDirecciones($id,$tipo,$idDirec){
 
 		
-		$resultado = modeloPerfil::mdldireccion($id,$tipo,$idDirec);
+		$resultado = modeloPerfil::mdlDireccion($id,$tipo,$idDirec);
 
 		return $resultado;
 

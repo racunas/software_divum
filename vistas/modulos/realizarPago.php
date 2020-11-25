@@ -55,7 +55,7 @@ if(isset($_POST['ordenConfirmada'], $_POST['idBox'])){
 
 
 	// REALIZAMOS EL SCRIPT PARA TRAER EL ENLACE DE PAYPAL
-	$urlPagoPaypal = Paypal::ctrPagoPaypal($infoOrden['trabajo'],$idTrabajo,$precio,$idBox);
+	//$urlPagoPaypal = Paypal::ctrPagoPaypal($infoOrden['trabajo'],$idTrabajo,$precio,$idBox);
 
 	//REALIZAMOS EL CODIGO PARA TRAER EL ENLACE DE MERCADOPAGO
 	//$urlMercadopago = Mercadopago::ctrPagoOrden($infoOrden['trabajo'],$idTrabajo,$precio,$referencia,$nombre,'test_user_43086458@testuser.com',$infoPerfil['tel']);
@@ -97,11 +97,11 @@ if(isset($_POST['ordenConfirmada'], $_POST['idBox'])){
 
 					</div>
 
-					<div class="formaPago" data-type="debit_card" data-box="<?php echo $idBox; ?>">
+					<!--<div class="formaPago" data-type="debit_card" data-box="<?php echo $idBox; ?>">
 						
 						<span><i class="fas fa-credit-card mr-2 txtRojo"></i> Tarjeta de débito <i class="fab fa-cc-mastercard ml-2 txtMastercard"></i> <i class="fab fa-cc-visa ml-2 txtVisa"></i></span>
 
-					</div>
+					</div>-->
 
 					<div class="formaPago" data-type="oxxo" data-box="<?php echo $idBox; ?>">
 						
@@ -109,17 +109,17 @@ if(isset($_POST['ordenConfirmada'], $_POST['idBox'])){
 
 					</div>
 
-					<div class="formaPago" data-type="paypal" data-box="<?php echo $idBox; ?>">
+					<!--<div class="formaPago" data-type="paypal" data-box="<?php echo $idBox; ?>">
 						
 						<span><i class="fab fa-paypal mr-2 txtPaypal"></i> PayPal</span>
 
-					</div>
+					</div>-->
 
-					<div class="formaPago" data-type="transfer" data-box="<?php echo $idBox; ?>">
+					<!--<div class="formaPago" data-type="transfer" data-box="<?php echo $idBox; ?>">
 						
 						<span><i class="fas fa-university mr-2 text-secondary"></i> Transferencia bancaria</span>
 
-					</div>
+					</div>-->
 
 					
 					<!--<div class="row pt-3 radioPago">

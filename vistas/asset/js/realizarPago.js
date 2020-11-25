@@ -88,7 +88,7 @@ $(".formaPago").click(function(){
 
 		} else {
 
-			console.log(datos);
+			/*console.log(datos);
 
 			$.ajax({
 
@@ -112,7 +112,7 @@ $(".formaPago").click(function(){
 
 				}
 
-			});
+			});*/
 			
 		}
 

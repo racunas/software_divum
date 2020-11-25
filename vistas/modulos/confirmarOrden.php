@@ -146,7 +146,7 @@ if(isset($_POST['ordenarAhora'])){ //SÍ VIENE DESDE EL FORMULARIO DE PRE ORDEN
 				<img src="<?php echo $url; ?>vistas/asset/images/logo.png" alt="Buscalab">
 
 				<span class="txtLogo pt-2">
-					<span class="colorBuscalabGris bold"><span class="colorBuscalab">Busca</span>lab</span>
+					<span class="colorBuscalabGris bold"><span class="colorBuscalab">DIVUM Soft</span>
 				</span>
 
 			</div>

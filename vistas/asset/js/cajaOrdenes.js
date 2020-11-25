@@ -32,6 +32,8 @@ $(".btnVerLaboratorios").click(function(){
 
 $(".btnEliminarOrdenCarrito").click(function(){
 
+    console.log("PRUEBA");
+
     var idBox = $(this).attr("data-id");
 
     var datos = {

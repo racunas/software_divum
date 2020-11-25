@@ -289,7 +289,7 @@ $ordenesBox = controladorBox::ctrOrdenesBox($idUsuario);
 
 								<?php 
 
-								$direccion = controladorPerfil::ctrdireccion($_SESSION['dentista'],"dentista",NULL);
+								$direccion = controladorPerfil::ctrDirecciones($_SESSION['dentista'],"dentista",NULL);
 
 								//print_r($direccion);
 
@@ -336,7 +336,7 @@ $ordenesBox = controladorBox::ctrOrdenesBox($idUsuario);
 								
 								<?php 
 
-								$direccion = controladorPerfil::ctrdireccion($_SESSION['dentista'],"dentista",NULL);
+								$direccion = controladorPerfil::ctrDirecciones($_SESSION['dentista'],"dentista",NULL);
 
 								//print_r($direccion);
 

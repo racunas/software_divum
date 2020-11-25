@@ -78,7 +78,7 @@ class modeloOrden{
 				break;
 
 			case 'tecnico':
-				$sql = $db -> query("SELECT cliente.img_perfil fotoPerfil FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join cliente on relacion.id_clie = cliente.id_clie WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_lab = $idUsuario");
+				$sql = $db -> query("SELECT dentista.img_perfil fotoPerfil FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join dentista on relacion.id_clie = dentista.id_clie WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_lab = $idUsuario");
 				break;
 			
 			default:
@@ -98,7 +98,7 @@ class modeloOrden{
 
 		$db = new Conexion();
 
-		$sql = $db -> query("SELECT cliente.nomb dentista, cliente.id_clie idUsuario, laboratorio.nomb laboratorio, laboratorio.id_lab idLaboratorio, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.paciente FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join cliente on relacion.id_clie = cliente.id_clie left join laboratorio on relacion.id_lab = laboratorio.id_lab left join disp_trab on orden_trabajo.id_prod = disp_trab.id_disp_trab left join disp_orto on orden_trabajo.id_orto = disp_orto.id_ort left join protesis on disp_trab.id_pro = protesis.id_pro left join ortodoncia_prod on disp_orto.id_ort_prod = ortodoncia_prod.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden'");
+		$sql = $db -> query("SELECT dentista.nomb dentista, dentista.id_clie idUsuario, laboratorio.nomb laboratorio, laboratorio.id_lab idLaboratorio, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.paciente FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join dentista on relacion.id_clie = dentista.id_clie left join laboratorio on relacion.id_lab = laboratorio.id_lab left join lista_precios_protesis on orden_trabajo.id_prod = lista_precios_protesis.id_lista_precios_protesis left join lista_precios_ortodoncia on orden_trabajo.id_orto = lista_precios_ortodoncia.id_ort left join protesis on lista_precios_protesis.id_pro = protesis.id_pro left join ortodoncia_prod on lista_precios_ortodoncia.id_ort_prod = ortodoncia_prod.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden'");
 
 		$respuesta = ($db->rows($sql) >= 1) ? $sql -> fetch_array(MYSQLI_ASSOC) : 0;
 
@@ -119,7 +119,7 @@ class modeloOrden{
 		switch ($tipo) {
 			case 'dentista':
 				
-				if( $db -> query("INSERT INTO mensajeria(id_ord, id_clie, mensaje) VALUES ('$idOrden', $idUsuario, '$mensaje')") ){
+				if( $db -> query("INSERT INTO mensaje(id_ord, id_clie, mensaje) VALUES ('$idOrden', $idUsuario, '$mensaje')") ){
 					$respuesta = true;
 				}
 				
@@ -128,7 +128,7 @@ class modeloOrden{
 
 			case 'tecnico':
 
-				if( $db -> query("INSERT INTO mensajeria(id_ord, id_lab, mensaje) VALUES ('$idOrden', $idUsuario, '$mensaje')") ){
+				if( $db -> query("INSERT INTO mensaje(id_ord, id_lab, mensaje) VALUES ('$idOrden', $idUsuario, '$mensaje')") ){
 					$respuesta = true;
 				}
 
@@ -150,7 +150,7 @@ class modeloOrden{
 
 		$db = new Conexion();
 
-		$sql = $db -> query("SELECT * FROM mensajeria WHERE id_ord = '$idOrden' order by fecha desc limit 1");
+		$sql = $db -> query("SELECT * FROM mensaje WHERE id_ord = '$idOrden' order by fecha desc limit 1");
 
 		$respuesta = ($db->rows($sql) >= 1) ? $sql -> fetch_array(MYSQLI_ASSOC) : false;
 
@@ -166,7 +166,7 @@ class modeloOrden{
 
 		$ultimoMsg = strtotime($timestamp);
 
-		$sql = $db -> query("SELECT * FROM mensajeria WHERE id_ord = '$idOrden' order by fecha desc limit 1");
+		$sql = $db -> query("SELECT * FROM mensaje WHERE id_ord = '$idOrden' order by fecha desc limit 1");
 
 		$datos = ($db->rows($sql) >= 1) ? $sql -> fetch_array(MYSQLI_ASSOC) : 0;
 
@@ -192,13 +192,13 @@ class modeloOrden{
 		switch ($tipo) {
 			case 'tecnico':
 
-				$sql = $db -> query("SELECT * FROM mensajeria WHERE id_ord = '$idOrden' and leido = 0 and id_lab is NULL");
+				$sql = $db -> query("SELECT * FROM mensaje WHERE id_ord = '$idOrden' and leido = 0 and id_lab is NULL");
 				
 				break;
 
 			case 'dentista':
 
-				$sql = $db -> query("SELECT * FROM mensajeria WHERE id_ord = '$idOrden' and leido = 0 and id_clie is NULL");
+				$sql = $db -> query("SELECT * FROM mensaje WHERE id_ord = '$idOrden' and leido = 0 and id_clie is NULL");
 
 				break;
 			
@@ -224,7 +224,7 @@ class modeloOrden{
 		switch ($tipo) {
 			case 'dentista':
 				
-				if($db -> query("UPDATE mensajeria SET leido = 1 WHERE id_ord = '$idOrden' and id_clie is NULL")){
+				if($db -> query("UPDATE mensaje SET leido = 1 WHERE id_ord = '$idOrden' and id_clie is NULL")){
 					$respuesta = true;
 				}
 
@@ -232,7 +232,7 @@ class modeloOrden{
 			
 			case 'tecnico':
 
-				if($db -> query("UPDATE mensajeria SET leido = 1 WHERE id_ord = '$idOrden' and id_lab is NULL")){
+				if($db -> query("UPDATE mensaje SET leido = 1 WHERE id_ord = '$idOrden' and id_lab is NULL")){
 					$respuesta = true;
 				}
 
@@ -265,7 +265,7 @@ class modeloOrden{
 
 		$queryLike = '(';
 
-		$cliente_Laboratorio = ($tipo == "dentista") ? "laboratorio.nomb" : 'cliente.nomb';
+		$dentista_Laboratorio = ($tipo == "dentista") ? "laboratorio.nomb" : 'dentista.nomb';
 
 		for($i = 0; $i < count($palabrasBusqueda); $i++) { //POR CADA PALABRA, AGREGAMOS UN CONDICIONAL LIKE DENTRO DE LA CONSULTA
 				
@@ -367,7 +367,7 @@ class modeloOrden{
 		switch ($tipo) {
 			case 'tecnico':
 
-			$sql = $db -> query("SELECT cliente.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, cliente.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join cliente on cliente.id_clie = relacion.id_clie left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE relacion.id_lab = $idUsuario and orden_trabajo.entregado != 4 and orden_trabajo.entregado != 3 and orden_trabajo.entregado != 2 and orden_trabajo.entregado != 1 and $queryLike ORDER BY orden_trabajo.fecha_ultima_orden DESC");
+			$sql = $db -> query("SELECT dentista.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, dentista.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join dentista on dentista.id_clie = relacion.id_clie left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE relacion.id_lab = $idUsuario and orden_trabajo.entregado != 4 and orden_trabajo.entregado != 3 and orden_trabajo.entregado != 2 and orden_trabajo.entregado != 1 and $queryLike ORDER BY orden_trabajo.fecha_ultima_orden DESC");
 
 			$resultado = ($db->rows($sql)>=1) ? $sql -> fetch_all(MYSQLI_ASSOC) : false;
 				
@@ -375,7 +375,7 @@ class modeloOrden{
 
 			case 'dentista':
 
-				$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join disp_trab on orden_trabajo.id_prod = disp_trab.id_disp_trab) left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on disp_trab.id_pro = protesis.id_pro left join ortodoncia_prod on disp_orto.id_ort_prod = ortodoncia_prod.id_ort_prod left join relacion on orden_trabajo.id_rel = relacion.id_rel left join laboratorio on relacion.id_lab = laboratorio.id_lab WHERE relacion.id_clie = $idUsuario and $queryLike ORDER BY orden_trabajo.fecha_ultima_orden DESC");
+				$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join lista_precios_protesis on orden_trabajo.id_prod = lista_precios_protesis.id_lista_precios_protesis) left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on lista_precios_protesis.id_pro = protesis.id_pro left join ortodoncia_prod on lista_precios_ortodoncia.id_ort_prod = ortodoncia_prod.id_ort_prod left join relacion on orden_trabajo.id_rel = relacion.id_rel left join laboratorio on relacion.id_lab = laboratorio.id_lab WHERE relacion.id_clie = $idUsuario and $queryLike ORDER BY orden_trabajo.fecha_ultima_orden DESC");
 
 				$resultado = ($db->rows($sql)>=1) ? $sql -> fetch_all(MYSQLI_ASSOC) : false;
 				
@@ -820,7 +820,7 @@ class modeloOrden{
 
 		$db = new Conexion();
 
-		if($db -> query("INSERT INTO archivos (nombre, id_ord, id_historial_ord) VALUES ('$nombreImagen','$idOrden',$idNuevaOrden)")){
+		if($db -> query("INSERT INTO imagenes (nombre, id_ord, id_historial_ord) VALUES ('$nombreImagen','$idOrden',$idNuevaOrden)")){
 
 			return true;
 
@@ -966,7 +966,7 @@ class modeloOrden{
 
 			case 'dentista':
 
-				$sql = $db -> query("SELECT orden_trabajo.* FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join cliente on cliente.id_clie = relacion.id_clie WHERE orden_trabajo.id_ord = '$idOrden' and cliente.id_clie = $idUsuario"); //VERIFICAMOS SÍ LA ORDEN LE CORRESPONDE A LA SESION DE ESE DENTISTA
+				$sql = $db -> query("SELECT orden_trabajo.* FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join dentista on dentista.id_clie = relacion.id_clie WHERE orden_trabajo.id_ord = '$idOrden' and dentista.id_clie = $idUsuario"); //VERIFICAMOS SÍ LA ORDEN LE CORRESPONDE A LA SESION DE ESE DENTISTA
 
 				if( ($status == "trabajoTerminadoDentista") && ($db -> rows($sql) >= 1) ){
 
@@ -1072,7 +1072,7 @@ class modeloOrden{
 
 					case 'resumen':
 
-						$sql = $db -> query("SELECT cliente.nomb nombre, cliente.img_perfil fotoPerfil, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, disp_trab.id_disp_trab idProtesis, disp_orto.id_ort idOrtodoncia, orden_trabajo.paciente, orden_trabajo.dientes, orden_trabajo.cantidad, orden_trabajo.tipo, color.nomb color, direcciones.calle direcRec, direcciones.cp cpRec, t.calle direcEnt, t.cp cpEnt, orden_trabajo.entregado, sepomex.municipio municipioRec, s.municipio municipioEnt FROM (orden_trabajo left join direcciones on orden_trabajo.dir_rec = direcciones.id_direc)left join direcciones t on orden_trabajo.dir_ent = t.id_direc left join sepomex on sepomex.id = direcciones.id_rep left join sepomex s on s.id = t.id_rep left join color on orden_trabajo.colorimetria = color.id_col left join relacion on orden_trabajo.id_rel = relacion.id_rel left join cliente on cliente.id_clie = relacion.id_clie left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_lab = $idUsuario");
+						$sql = $db -> query("SELECT dentista.nomb nombre, dentista.img_perfil fotoPerfil, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, lista_precios_protesis.id_lista_precios_protesis idProtesis, lista_precios_ortodoncia.id_ort idOrtodoncia, orden_trabajo.paciente, orden_trabajo.dientes, orden_trabajo.cantidad, orden_trabajo.tipo, color.nomb color, direccion.calle direcRec, direccion.cp cpRec, t.calle direcEnt, t.cp cpEnt, orden_trabajo.entregado, sepomex.municipio municipioRec, s.municipio municipioEnt FROM (orden_trabajo left join direccion on orden_trabajo.dir_rec = direccion.id_direc)left join direccion t on orden_trabajo.dir_ent = t.id_direc left join sepomex on sepomex.id = direccion.id_rep left join sepomex s on s.id = t.id_rep left join color on orden_trabajo.colorimetria = color.id_col left join relacion on orden_trabajo.id_rel = relacion.id_rel left join dentista on dentista.id_clie = relacion.id_clie left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_lab = $idUsuario");
 
 						break;
 
@@ -1085,13 +1085,13 @@ class modeloOrden{
 
 					case 'fotos':
 						
-						$sql = $db -> query("SELECT archivos.* FROM (archivos left join orden_trabajo on archivos.id_ord = orden_trabajo.id_ord) left join relacion on orden_trabajo.id_rel = relacion.id_rel WHERE relacion.id_lab = $idUsuario and orden_trabajo.id_ord = '$idOrden'");
+						$sql = $db -> query("SELECT imagenes.* FROM (imagenes left join orden_trabajo on imagenes.id_ord = orden_trabajo.id_ord) left join relacion on orden_trabajo.id_rel = relacion.id_rel WHERE relacion.id_lab = $idUsuario and orden_trabajo.id_ord = '$idOrden'");
 
 						break;
 
 					case 'chat':
 
-						$sql = $db -> query("SELECT * FROM mensajeria WHERE id_ord = '$idOrden' ORDER BY fecha ASC");
+						$sql = $db -> query("SELECT * FROM mensaje WHERE id_ord = '$idOrden' ORDER BY fecha ASC");
 
 						break;
 					
@@ -1110,7 +1110,7 @@ class modeloOrden{
 
 					case 'resumen':
 
-						$sql = $db -> query("SELECT laboratorio.nomb nombre, laboratorio.img_art fotoPerfil, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, disp_trab.id_disp_trab idProtesis, disp_orto.id_ort idOrtodoncia, orden_trabajo.paciente, orden_trabajo.dientes, orden_trabajo.cantidad, orden_trabajo.tipo, color.nomb color, direcciones.calle direcRec, direcciones.cp cpRec, t.calle direcEnt, t.cp cpEnt, orden_trabajo.entregado, sepomex.municipio municipioRec, s.municipio municipioEnt FROM (orden_trabajo left join direcciones on orden_trabajo.dir_rec = direcciones.id_direc)left join direcciones t on orden_trabajo.dir_ent = t.id_direc left join sepomex on sepomex.id = direcciones.id_rep left join sepomex s on s.id = t.id_rep left join color on orden_trabajo.colorimetria = color.id_col left join relacion on orden_trabajo.id_rel = relacion.id_rel left join laboratorio on laboratorio.id_lab = relacion.id_lab left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_clie = $idUsuario");
+						$sql = $db -> query("SELECT laboratorio.nomb nombre, laboratorio.img_art fotoPerfil, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, lista_precios_protesis.id_lista_precios_protesis idProtesis, lista_precios_ortodoncia.id_ort idOrtodoncia, orden_trabajo.paciente, orden_trabajo.dientes, orden_trabajo.cantidad, orden_trabajo.tipo, color.nomb color, direccion.calle direcRec, direccion.cp cpRec, t.calle direcEnt, t.cp cpEnt, orden_trabajo.entregado, sepomex.municipio municipioRec, s.municipio municipioEnt FROM (orden_trabajo left join direccion on orden_trabajo.dir_rec = direccion.id_direc)left join direccion t on orden_trabajo.dir_ent = t.id_direc left join sepomex on sepomex.id = direccion.id_rep left join sepomex s on s.id = t.id_rep left join color on orden_trabajo.colorimetria = color.id_col left join relacion on orden_trabajo.id_rel = relacion.id_rel left join laboratorio on laboratorio.id_lab = relacion.id_lab left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_clie = $idUsuario");
 
 						break;
 
@@ -1123,13 +1123,13 @@ class modeloOrden{
 
 					case 'fotos':
 						
-						$sql = $db -> query("SELECT archivos.* FROM (archivos left join orden_trabajo on archivos.id_ord = orden_trabajo.id_ord) left join relacion on orden_trabajo.id_rel = relacion.id_rel WHERE relacion.id_clie = $idUsuario and orden_trabajo.id_ord = '$idOrden'");
+						$sql = $db -> query("SELECT imagenes.* FROM (imagenes left join orden_trabajo on imagenes.id_ord = orden_trabajo.id_ord) left join relacion on orden_trabajo.id_rel = relacion.id_rel WHERE relacion.id_clie = $idUsuario and orden_trabajo.id_ord = '$idOrden'");
 
 						break;
 
 					case 'chat':
 
-						$sql = $db -> query("SELECT * FROM mensajeria WHERE id_ord = '$idOrden' ORDER BY fecha ASC");
+						$sql = $db -> query("SELECT * FROM mensaje WHERE id_ord = '$idOrden' ORDER BY fecha ASC");
 
 						break;
 					
@@ -1170,14 +1170,14 @@ class modeloOrden{
 		switch ($tipo) {
 			case 'tecnico':
 				
-				$sql = $db -> query("SELECT cliente.nomb nombre, cliente.id_clie id, cliente.img_perfil fotoPerfil, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, disp_trab.id_disp_trab idProtesis, disp_orto.id_ort idOrtodoncia, orden_trabajo.paciente, orden_trabajo.dientes, orden_trabajo.cantidad, orden_trabajo.tipo, color.nomb color, direcciones.calle direcRec, direcciones.cp cpRec, t.calle direcEnt, t.cp cpEnt, orden_trabajo.entregado, sepomex.municipio municipioRec, s.municipio municipioEnt FROM (orden_trabajo left join direcciones on orden_trabajo.dir_rec = direcciones.id_direc)left join direcciones t on orden_trabajo.dir_ent = t.id_direc left join sepomex on sepomex.id = direcciones.id_rep left join sepomex s on s.id = t.id_rep left join color on orden_trabajo.colorimetria = color.id_col left join relacion on orden_trabajo.id_rel = relacion.id_rel left join cliente on cliente.id_clie = relacion.id_clie left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_lab = $idUsuario");
+				$sql = $db -> query("SELECT dentista.nomb nombre, dentista.id_clie id, dentista.img_perfil fotoPerfil, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, lista_precios_protesis.id_lista_precios_protesis idProtesis, lista_precios_ortodoncia.id_ort idOrtodoncia, orden_trabajo.paciente, orden_trabajo.dientes, orden_trabajo.cantidad, orden_trabajo.tipo, color.nomb color, direccion.calle direcRec, direccion.cp cpRec, t.calle direcEnt, t.cp cpEnt, orden_trabajo.entregado, sepomex.municipio municipioRec, s.municipio municipioEnt FROM (orden_trabajo left join direccion on orden_trabajo.dir_rec = direccion.id_direc)left join direccion t on orden_trabajo.dir_ent = t.id_direc left join sepomex on sepomex.id = direccion.id_rep left join sepomex s on s.id = t.id_rep left join color on orden_trabajo.colorimetria = color.id_col left join relacion on orden_trabajo.id_rel = relacion.id_rel left join dentista on dentista.id_clie = relacion.id_clie left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_lab = $idUsuario");
 
 
 				break;
 
 			case 'dentista':
 				
-				$sql = $db -> query("SELECT laboratorio.nomb nombre, laboratorio.id_lab id, laboratorio.img_art fotoPerfil, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, disp_trab.id_disp_trab idProtesis, disp_orto.id_ort idOrtodoncia, orden_trabajo.paciente, orden_trabajo.dientes, orden_trabajo.cantidad, orden_trabajo.tipo, color.nomb color, direcciones.calle direcRec, direcciones.cp cpRec, t.calle direcEnt, t.cp cpEnt, orden_trabajo.entregado, sepomex.municipio municipioRec, s.municipio municipioEnt FROM (orden_trabajo left join direcciones on orden_trabajo.dir_rec = direcciones.id_direc)left join direcciones t on orden_trabajo.dir_ent = t.id_direc left join sepomex on sepomex.id = direcciones.id_rep left join sepomex s on s.id = t.id_rep left join color on orden_trabajo.colorimetria = color.id_col left join relacion on orden_trabajo.id_rel = relacion.id_rel left join laboratorio on laboratorio.id_lab = relacion.id_lab left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_clie = $idUsuario");
+				$sql = $db -> query("SELECT laboratorio.nomb nombre, laboratorio.id_lab id, laboratorio.img_art fotoPerfil, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, lista_precios_protesis.id_lista_precios_protesis idProtesis, lista_precios_ortodoncia.id_ort idOrtodoncia, orden_trabajo.paciente, orden_trabajo.dientes, orden_trabajo.cantidad, orden_trabajo.tipo, color.nomb color, direccion.calle direcRec, direccion.cp cpRec, t.calle direcEnt, t.cp cpEnt, orden_trabajo.entregado, sepomex.municipio municipioRec, s.municipio municipioEnt FROM (orden_trabajo left join direccion on orden_trabajo.dir_rec = direccion.id_direc)left join direccion t on orden_trabajo.dir_ent = t.id_direc left join sepomex on sepomex.id = direccion.id_rep left join sepomex s on s.id = t.id_rep left join color on orden_trabajo.colorimetria = color.id_col left join relacion on orden_trabajo.id_rel = relacion.id_rel left join laboratorio on laboratorio.id_lab = relacion.id_lab left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE orden_trabajo.id_ord = '$idOrden' and relacion.id_clie = $idUsuario");
 
 				break;
 				
@@ -1215,7 +1215,7 @@ class modeloOrden{
 			
 			case 'tecnico':
 
-				$sql = $db -> query ("SELECT cliente.nomb, cliente.img_perfil fotoPerfil, relacion.id_rel, relacion.id_clie FROM relacion left join cliente on relacion.id_clie = cliente.id_clie WHERE id_lab = $idUsuario");
+				$sql = $db -> query ("SELECT dentista.nomb, dentista.img_perfil fotoPerfil, relacion.id_rel, relacion.id_clie FROM relacion left join dentista on relacion.id_clie = dentista.id_clie WHERE id_lab = $idUsuario");
 
 				break;
 
@@ -1250,13 +1250,13 @@ class modeloOrden{
 		switch ($queEs) {
 			case 'protesis':
 				
-				$sql = $db -> query("SELECT protesis.nomb FROM disp_trab left join protesis on disp_trab.id_pro = protesis.id_pro WHERE disp_trab.id_disp_trab = $idTrabajo");
+				$sql = $db -> query("SELECT protesis.nomb FROM lista_precios_protesis left join protesis on lista_precios_protesis.id_pro = protesis.id_pro WHERE lista_precios_protesis.id_lista_precios_protesis = $idTrabajo");
 
 				break;
 
 			case 'ortodoncia':
 
-				$sql = $db -> query("SELECT ortodoncia_prod.nomb FROM disp_orto left join ortodoncia_prod on disp_orto.id_ort_prod = ortodoncia_prod.id_ort_prod WHERE disp_orto.id_ort = $idTrabajo");
+				$sql = $db -> query("SELECT ortodoncia_prod.nomb FROM lista_precios_ortodoncia left join ortodoncia_prod on lista_precios_ortodoncia.id_ort_prod = ortodoncia_prod.id_ort_prod WHERE lista_precios_ortodoncia.id_ort = $idTrabajo");
 
 				break;
 			
@@ -1289,7 +1289,7 @@ class modeloOrden{
 				switch ($filtro) {
 					case 'prioritario':
 						
-						$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE relacion.id_clie = $idUsuario and orden_trabajo.entregado != 1 ORDER BY orden_trabajo.fecha_ultima_orden DESC");
+						$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE relacion.id_clie = $idUsuario and orden_trabajo.entregado != 1 ORDER BY orden_trabajo.fecha_ultima_orden DESC");
 
 						break;
 					
@@ -1297,26 +1297,26 @@ class modeloOrden{
 
 						$fechaActual = date("Y-m-d");
 
-						$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, historial_orden_trabajo.fecha_hist_ord fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod left join historial_orden_trabajo on orden_trabajo.id_ord = historial_orden_trabajo.id_ord WHERE relacion.id_clie = $idUsuario and historial_orden_trabajo.fecha_hist_ord LIKE '$fechaActual%' ORDER BY orden_trabajo.fecha_ultima_orden DESC");
+						$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, historial_orden_trabajo.fecha_hist_ord fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod left join historial_orden_trabajo on orden_trabajo.id_ord = historial_orden_trabajo.id_ord WHERE relacion.id_clie = $idUsuario and historial_orden_trabajo.fecha_hist_ord LIKE '$fechaActual%' ORDER BY orden_trabajo.fecha_ultima_orden DESC");
 
 						break;
 
 					case 'atrasado':
 
-						//$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE relacion.id_clie = $idUsuario ORDER BY orden_trabajo.fecha_orden DESC");
+						//$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE relacion.id_clie = $idUsuario ORDER BY orden_trabajo.fecha_orden DESC");
 
 						break;
 
 					case 'finalizado':
 
-						$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE relacion.id_clie = $idUsuario and orden_trabajo.entregado = 1 ORDER BY orden_trabajo.fecha_orden DESC");
+						$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE relacion.id_clie = $idUsuario and orden_trabajo.entregado = 1 ORDER BY orden_trabajo.fecha_orden DESC");
 
 
 						break;
 
 					case 'cancelado':
 
-						$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE relacion.id_clie = $idUsuario and orden_trabajo.entregado = 4 ORDER BY orden_trabajo.fecha_orden DESC");
+						$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE relacion.id_clie = $idUsuario and orden_trabajo.entregado = 4 ORDER BY orden_trabajo.fecha_orden DESC");
 
 						break;
 
@@ -1332,7 +1332,7 @@ class modeloOrden{
 				switch ($filtro) {
 					case 'prioritario':
 						
-						$sql = $db -> query("SELECT cliente.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, cliente.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join cliente on cliente.id_clie = relacion.id_clie left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE relacion.id_lab = $idUsuario and orden_trabajo.entregado != 4 and orden_trabajo.entregado != 3 and orden_trabajo.entregado != 2 and orden_trabajo.entregado != 1 ORDER BY orden_trabajo.fecha_ultima_orden DESC");
+						$sql = $db -> query("SELECT dentista.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, dentista.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join dentista on dentista.id_clie = relacion.id_clie left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE relacion.id_lab = $idUsuario and orden_trabajo.entregado != 4 and orden_trabajo.entregado != 3 and orden_trabajo.entregado != 2 and orden_trabajo.entregado != 1 ORDER BY orden_trabajo.fecha_ultima_orden DESC");
 
 						break;
 					
@@ -1340,26 +1340,26 @@ class modeloOrden{
 
 						$fechaActual = date("Y-m-d");
 
-						$sql = $db -> query("SELECT cliente.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, historial_orden_trabajo.fecha_hist_ord fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, cliente.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join cliente on cliente.id_clie = relacion.id_clie left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod left join historial_orden_trabajo on orden_trabajo.id_ord = historial_orden_trabajo.id_ord WHERE relacion.id_lab = $idUsuario and historial_orden_trabajo.fecha_hist_ord LIKE '$fechaActual%' and orden_trabajo.entregado = 0 ORDER BY orden_trabajo.fecha_ultima_orden DESC");
+						$sql = $db -> query("SELECT dentista.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, historial_orden_trabajo.fecha_hist_ord fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, dentista.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join dentista on dentista.id_clie = relacion.id_clie left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod left join historial_orden_trabajo on orden_trabajo.id_ord = historial_orden_trabajo.id_ord WHERE relacion.id_lab = $idUsuario and historial_orden_trabajo.fecha_hist_ord LIKE '$fechaActual%' and orden_trabajo.entregado = 0 ORDER BY orden_trabajo.fecha_ultima_orden DESC");
 
 						break;
 
 					case 'atrasado':
 
-						//$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE relacion.id_clie = $idUsuario ORDER BY orden_trabajo.fecha_orden DESC");
+						//$sql = $db -> query("SELECT laboratorio.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, laboratorio.img_art fotoPerfil FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join laboratorio on laboratorio.id_lab = relacion.id_lab left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE relacion.id_clie = $idUsuario ORDER BY orden_trabajo.fecha_orden DESC");
 
 						break;
 
 					case 'finalizado':
 
-						$sql = $db -> query("SELECT cliente.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, cliente.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join cliente on cliente.id_clie = relacion.id_clie left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE relacion.id_lab = $idUsuario and orden_trabajo.entregado = 1 ORDER BY orden_trabajo.fecha_orden DESC");
+						$sql = $db -> query("SELECT dentista.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, dentista.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join dentista on dentista.id_clie = relacion.id_clie left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE relacion.id_lab = $idUsuario and orden_trabajo.entregado = 1 ORDER BY orden_trabajo.fecha_orden DESC");
 
 
 						break;
 
 					case 'cancelado':
 
-						$sql = $db -> query("SELECT cliente.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, cliente.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join cliente on cliente.id_clie = relacion.id_clie left join disp_trab on disp_trab.id_disp_trab = orden_trabajo.id_prod left join disp_orto on disp_orto.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = disp_trab.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod WHERE relacion.id_lab = $idUsuario and orden_trabajo.entregado = 4 ORDER BY orden_trabajo.fecha_orden DESC");
+						$sql = $db -> query("SELECT dentista.nomb, protesis.nomb protesis, ortodoncia_prod.nomb ortodoncia, orden_trabajo.fecha_orden fecha, orden_trabajo.cantidad precio, orden_trabajo.tipo, orden_trabajo.fecha_entrega, orden_trabajo.id_ord, dentista.img_perfil fotoPerfil, orden_trabajo.entregado, orden_trabajo.paciente, orden_trabajo.dientes FROM (orden_trabajo left join relacion on orden_trabajo.id_rel = relacion.id_rel) left join dentista on dentista.id_clie = relacion.id_clie left join lista_precios_protesis on lista_precios_protesis.id_lista_precios_protesis = orden_trabajo.id_prod left join lista_precios_ortodoncia on lista_precios_ortodoncia.id_ort = orden_trabajo.id_orto left join protesis on protesis.id_pro = lista_precios_protesis.id_pro left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod WHERE relacion.id_lab = $idUsuario and orden_trabajo.entregado = 4 ORDER BY orden_trabajo.fecha_orden DESC");
 
 						break;
 
@@ -1498,11 +1498,11 @@ class modeloOrden{
 
 		////////////////////////////////////////////////////
 
-		//SE ELIMINA EL SEGUIMIENTO DE ARCHIVOS POR LA BOX Y SE CAMBIA POR EL CÓDIGO DE ORDEN
-		$sql = $db -> query("SELECT * FROM archivos WHERE id_box = ".$datos['idBox']."");
+		//SE ELIMINA EL SEGUIMIENTO DE imagenes POR LA BOX Y SE CAMBIA POR EL CÓDIGO DE ORDEN
+		$sql = $db -> query("SELECT * FROM imagenes WHERE id_box = ".$datos['idBox']."");
 			if($db -> rows($sql) >= 1){
-				if($db -> query("UPDATE archivos SET id_ord = '".$ordenCodigo."' WHERE id_box = ".$datos['idBox']."")){
-				  $db -> query("UPDATE archivos SET id_box = NULL WHERE id_box = ".$datos['idBox']."");
+				if($db -> query("UPDATE imagenes SET id_ord = '".$ordenCodigo."' WHERE id_box = ".$datos['idBox']."")){
+				  $db -> query("UPDATE imagenes SET id_box = NULL WHERE id_box = ".$datos['idBox']."");
 			}
 		}
 
@@ -1717,7 +1717,7 @@ class modeloOrden{
 
 		$db = new Conexion();
 
-		$sql = $db -> query("SELECT * FROM archivos WHERE id_box = $idBox");
+		$sql = $db -> query("SELECT * FROM imagenes WHERE id_box = $idBox");
 
 		if($db -> rows($sql) >= 1){
 
@@ -1737,7 +1737,7 @@ class modeloOrden{
 
 		$db = new Conexion();
 
-		if($db -> query("INSERT INTO archivos (nombre, id_box) VALUES ('$nombreImagen',$idBox)")){
+		if($db -> query("INSERT INTO imagenes (nombre, id_box) VALUES ('$nombreImagen',$idBox)")){
 
 			return true;
 
@@ -1760,11 +1760,11 @@ class modeloOrden{
 
 			if($tipo == "urgente"){ //SÍ ES UN TRABAJO URGENTE, LLEVAR LA INFORMACIÓN CORRESPONDIENTE DEL PRODUCTO URGENTE
 
-				$sql = $db -> query("SELECT protesis.nomb trabajo, laboratorio.nomb laboratorio, laboratorio.descr, disp_trab_urg.precio, disp_trab_urg.dias_entrega tiempo, laboratorio.nomb_art artista, material.nomb material, laboratorio.id_lab idLaboratorio, disp_trab_urg.id_disp_trab idTrabajo FROM protesis left join disp_trab on protesis.id_pro = disp_trab.id_pro, laboratorio, material, disp_trab_urg where disp_trab.id_disp_trab = $idTrabajo and laboratorio.id_lab = disp_trab.id_lab and material.id_mat = protesis.id_mat and disp_trab.id_disp_trab = disp_trab_urg.id_disp_trab");
+				$sql = $db -> query("SELECT protesis.nomb trabajo, laboratorio.nomb laboratorio, laboratorio.descr, lista_precios_protesis_urg.precio, lista_precios_protesis_urg.dias_entrega tiempo, laboratorio.nomb_art artista, material.nomb material, laboratorio.id_lab idLaboratorio, lista_precios_protesis_urg.id_lista_precios_protesis idTrabajo FROM protesis left join lista_precios_protesis on protesis.id_pro = lista_precios_protesis.id_pro, laboratorio, material, lista_precios_protesis_urg where lista_precios_protesis.id_lista_precios_protesis = $idTrabajo and laboratorio.id_lab = lista_precios_protesis.id_lab and material.id_mat = protesis.id_mat and lista_precios_protesis.id_lista_precios_protesis = lista_precios_protesis_urg.id_lista_precios_protesis");
 				
 			} else { //SÍ ES UN TRABAJO ORDINARIO, LLEVAR LA INFORMACIÓN CORRESPONDIENTE DEL PRODUCTO ORDINARIO
 
-				$sql = $db -> query("SELECT protesis.nomb trabajo, laboratorio.nomb laboratorio, laboratorio.descr, disp_trab.precio, disp_trab.dias_entrega tiempo, laboratorio.nomb_art artista, material.nomb material, laboratorio.id_lab idLaboratorio, disp_trab.id_disp_trab idTrabajo FROM protesis left join disp_trab on protesis.id_pro = disp_trab.id_pro, laboratorio, material where disp_trab.id_disp_trab = $idTrabajo and laboratorio.id_lab = disp_trab.id_lab and material.id_mat = protesis.id_mat");
+				$sql = $db -> query("SELECT protesis.nomb trabajo, laboratorio.nomb laboratorio, laboratorio.descr, lista_precios_protesis.precio, lista_precios_protesis.dias_entrega tiempo, laboratorio.nomb_art artista, material.nomb material, laboratorio.id_lab idLaboratorio, lista_precios_protesis.id_lista_precios_protesis idTrabajo FROM protesis left join lista_precios_protesis on protesis.id_pro = lista_precios_protesis.id_pro, laboratorio, material where lista_precios_protesis.id_lista_precios_protesis = $idTrabajo and laboratorio.id_lab = lista_precios_protesis.id_lab and material.id_mat = protesis.id_mat");
 
 			}
 
@@ -1772,11 +1772,11 @@ class modeloOrden{
 
 			if($tipo == "urgente"){//SÍ ES UN TRABAJO URGENTE, LLEVAR LA INFORMACIÓN CORRESPONDIENTE DEL PRODUCTO URGENTE ORTODONCIA
 
-				$sql = $db->query("SELECT ortodoncia_prod.nomb trabajo, laboratorio.nomb laboratorio, laboratorio.descr, disp_orto_urg.precio, disp_orto_urg.dias_terminado tiempo, laboratorio.nomb_art artista, laboratorio.id_lab idLaboratorio, laboratorio.img_orden imgOrden, disp_orto.id_ort idTrabajo FROM disp_orto left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod left join laboratorio on disp_orto.id_lab = laboratorio.id_lab, disp_orto_urg WHERE disp_orto.id_ort = $idTrabajo and disp_orto.id_ort = disp_orto_urg.id_ort");
+				$sql = $db->query("SELECT ortodoncia_prod.nomb trabajo, laboratorio.nomb laboratorio, laboratorio.descr, lista_precios_ortodoncia_urg.precio, lista_precios_ortodoncia_urg.dias_terminado tiempo, laboratorio.nomb_art artista, laboratorio.id_lab idLaboratorio, laboratorio.img_orden imgOrden, lista_precios_ortodoncia.id_ort idTrabajo FROM lista_precios_ortodoncia left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod left join laboratorio on lista_precios_ortodoncia.id_lab = laboratorio.id_lab, lista_precios_ortodoncia_urg WHERE lista_precios_ortodoncia.id_ort = $idTrabajo and lista_precios_ortodoncia.id_ort = lista_precios_ortodoncia_urg.id_ort");
 
 			} else {//SÍ ES UN TRABAJO ORDINARIO, LLEVAR LA INFORMACIÓN CORRESPONDIENTE DEL PRODUCTO ORDINARIO ORTODONCIA
 
-				$sql = $db->query("SELECT ortodoncia_prod.nomb trabajo, laboratorio.nomb laboratorio, laboratorio.descr, disp_orto.precio, disp_orto.dias_entrega tiempo, laboratorio.nomb_art artista, laboratorio.id_lab idLaboratorio, laboratorio.img_orden imgOrden, disp_orto.id_ort idTrabajo FROM disp_orto left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = disp_orto.id_ort_prod left join laboratorio on disp_orto.id_lab = laboratorio.id_lab WHERE disp_orto.id_ort = $idTrabajo");
+				$sql = $db->query("SELECT ortodoncia_prod.nomb trabajo, laboratorio.nomb laboratorio, laboratorio.descr, lista_precios_ortodoncia.precio, lista_precios_ortodoncia.dias_entrega tiempo, laboratorio.nomb_art artista, laboratorio.id_lab idLaboratorio, laboratorio.img_orden imgOrden, lista_precios_ortodoncia.id_ort idTrabajo FROM lista_precios_ortodoncia left join ortodoncia_prod on ortodoncia_prod.id_ort_prod = lista_precios_ortodoncia.id_ort_prod left join laboratorio on lista_precios_ortodoncia.id_lab = laboratorio.id_lab WHERE lista_precios_ortodoncia.id_ort = $idTrabajo");
 			}
 			
 

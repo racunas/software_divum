@@ -219,7 +219,7 @@
 }
 
 .radioQueEs .etiqueta:hover{
-	background: rgba(255,153,0,0.3)
+	background: rgba(60, 146, 77, 0.3)
 }
 
 .radioQueEs .etiqueta:before{
@@ -237,7 +237,7 @@
 
 .radioQueEs input[type="radio"]:checked + .etiqueta{
 	color:white;
-	background: rgba(255,153,0,1);
+	background: #83a85e;
 	border-radius: 8px 8px;
 	padding: 5px 15px;
 }
